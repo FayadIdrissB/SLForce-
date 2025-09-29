@@ -1,9 +1,12 @@
-﻿using System;
+using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace slf_backend.Models
 {
 	public class SubscriptionStripe
 	{
         // Attribut
+        [Key]
         public int IdSubscriptionStripe { get; set; }
         public string IdStripe { get; set; } = string.Empty;
         public DateTime StartSubscription { get; set; }
@@ -12,7 +15,7 @@ namespace slf_backend.Models
         public decimal Price { get; set; }
 
         // foreign Key
-        public int IdUserCoach { get; set; }
+        public string IdUserCoach { get; set; } = string.Empty;
         public UserCoach UserCoach { get; set; } = null!;
 	}
 }
