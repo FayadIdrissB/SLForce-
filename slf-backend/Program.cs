@@ -1,23 +1,29 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using slf_backend.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-// ---- Add DbContext ---- //
+// 📦 Configuration du contexte de base de données (SQLite)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-// Add services to the container.
-builder.Services.AddSwaggerGen();
-builder.Services.AddControllers();
+// ⚙️ Ajout des services essentiels
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Contrôleurs de l’API
+builder.Services.AddControllers();
+
+// AutoMapper pour le mapping DTOs ↔️ Models
+builder.Services.AddAutoMapper(typeof(Program));
+
 
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
+// 🚀 Configuration du pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -25,10 +31,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
-

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using slf_backend.Data;
@@ -9,7 +5,9 @@ using slf_backend.Models;
 
 namespace slf_backend.Controllers
 {
-    public class UsersController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UsersController : ControllerBase
     {
         private readonly AppDbContext _context;
 
@@ -18,141 +16,65 @@ namespace slf_backend.Controllers
             _context = context;
         }
 
-        // GET: Users
-        public async Task<IActionResult> Index()
+        // 🔹 GET /api/users
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
-            return _context.Users != null ?
-                        View(await _context.Users.ToListAsync()) :
-                        Problem("Entity set 'AppDbContext.Users' is null.");
+            var users = await _context.Users.ToListAsync();
+            return Ok(users);
         }
 
-        // GET: Users/Details:id
-        public async Task<IActionResult> Details(string id)
+
+        // 🔹 GET /api/users/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(string id)
         {
-            if (id == null || _context.Users == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        // GET: Users/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Users/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,Role,IdAdmin,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }
-
-        // GET: Users/Edit:id
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null || _context.Users == null)
-            {
-                return NotFound();
-            }
-
             var user = await _context.Users.FindAsync(id);
             if (user == null)
-            {
-                return NotFound();
-            }
-            return View(user);
+                return NotFound(new { message = "Utilisateur introuvable" });
+
+            return Ok(user);
         }
 
-        // POST: Users/Edit:id
+
+        // 🔹 POST /api/users
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("FirstName,LastName,Role,IdAdmin,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] User user)
+        public async Task<ActionResult<User>> CreateUser([FromBody] User user)
+        {
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            // ✅ user.Id est une string héritée d’IdentityUser
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+        }
+
+
+        // 🔹 PUT /api/users/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(string id, [FromBody] User user)
         {
             if (id != user.Id)
-            {
-                return NotFound();
-            }
+                return BadRequest(new { message = "L'ID du corps et celui de l'URL ne correspondent pas." });
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UserExists(user.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }
-
-        // GET: Users/Delete:id
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null || _context.Users == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            if (_context.Users == null)
-            {
-                return Problem("Entity set 'AppDbContext.Users' is null.");
-            }
-            var user = await _context.Users.FindAsync(id);
-            if (user != null)
-            {
-                _context.Users.Remove(user);
-            }
-
+            _context.Entry(user).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return NoContent();
         }
 
-        private bool UserExists(string id)
+
+        // 🔹 DELETE /api/users/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(string id)
         {
-            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+                return NotFound(new { message = "Utilisateur introuvable" });
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }
