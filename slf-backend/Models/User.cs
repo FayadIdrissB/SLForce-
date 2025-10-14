@@ -6,7 +6,7 @@ namespace slf_backend.Models
         // Attribut
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
-        public bool Role { get; set; } 
+        public string? Role { get; set; } 
 
         // foreign Key
         public int? IdAdmin { get; set; }
