@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 
+
 namespace slf_backend.Controllers
 {
     [ApiController]
@@ -20,27 +21,24 @@ namespace slf_backend.Controllers
         }
 
 
-        // 💳 PARTIE PAYPAL : création d'une commande PayPal Sandbox
+        // 💳 PAYPAL SECTION: Creating a PayPal Sandbox Order
         [HttpPost("paypal")]
         public async Task<IActionResult> CreatePaypalPayment([FromBody] PaypalPaymentDto dto)
         {
-            // Vérification des identifiants reçus
             if (dto.AthleteId <= 0 || dto.CoachId <= 0)
                 return BadRequest(new { message = "Les identifiants sont invalides." });
 
-            // 1️⃣ Lecture des identifiants PayPal depuis appsettings.json
+            // 1️⃣ Reading PayPal credentials from appsettings.json
             var clientId = _configuration["PayPal:ClientId"];
             var clientSecret = _configuration["PayPal:ClientSecret"];
             var mode = _configuration["PayPal:Mode"];
 
-            // 2️⃣ Création de l’environnement sandbox ou live
+            // 2️⃣ Creation of the sandbox or live environment
             PayPalEnvironment environment = mode == "live"
                 ? new LiveEnvironment(clientId, clientSecret)
                 : new SandboxEnvironment(clientId, clientSecret);
 
             var client = new PayPalHttpClient(environment);
-
-            // 3️⃣ Création de la requête de commande
             var orderRequest = new OrderRequest()
             {
                 CheckoutPaymentIntent = "CAPTURE",
@@ -63,7 +61,6 @@ namespace slf_backend.Controllers
                 }
             };
 
-            // 4️⃣ Envoi de la requête vers PayPal
             var request = new OrdersCreateRequest();
             request.Prefer("return=representation");
             request.RequestBody(orderRequest);
@@ -73,7 +70,6 @@ namespace slf_backend.Controllers
                 var response = await client.Execute(request);
                 var result = response.Result<Order>();
 
-                // ✅ Réponse simplifiée pour Swagger
                 return Ok(new
                 {
                     success = true,
@@ -94,7 +90,7 @@ namespace slf_backend.Controllers
         }
 
 
-        // 💳 PARTIE PAYPAL : redirections après paiement
+        // 💳 PAYPAL SECTION: redirections after payment
         [HttpGet("success")]
         public IActionResult PaymentSuccess([FromQuery] string token)
         {
@@ -108,14 +104,14 @@ namespace slf_backend.Controllers
         }
 
 
-        // 💰 PARTIE STRIPE (simulée pour l'instant)
+        // 💰 STRIPE PART (simulated for now)
         [HttpPost("stripe")]
         public async Task<IActionResult> CreateStripePayment([FromBody] StripePaymentDto dto)
         {
             if (dto.CoachId <= 0)
                 return BadRequest(new { message = "L'identifiant du coach est invalide." });
 
-            await Task.Delay(500); // Simulation d'un traitement réseau
+            await Task.Delay(500); 
 
             var stripeResponse = new
             {
@@ -131,7 +127,7 @@ namespace slf_backend.Controllers
     }
 
 
-    // 📦 DTOs pour les paiements
+    // 📦 DTOs for payments
     public class PaypalPaymentDto
     {
         public int AthleteId { get; set; }

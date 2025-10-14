@@ -44,7 +44,6 @@ namespace slf_backend.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            // ✅ user.Id est une string héritée d’IdentityUser
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
