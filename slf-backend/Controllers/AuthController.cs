@@ -25,6 +25,12 @@ namespace slf_backend.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
+            var validRoles = new[] { "Athlete", "Coach", "Admin" };
+            if (!validRoles.Contains(dto.Role))
+            {
+                dto.Role = "Athlete";
+            }
+
             var user = new User
             {
                 UserName = dto.Email,
@@ -61,7 +67,8 @@ namespace slf_backend.Controllers
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim("uid", user.Id)
+                    new Claim("uid", user.Id),
+                    new Claim(ClaimTypes.Role, user.Role ?? "Athlete")
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(double.Parse(jwtSettings["ExpireMinutes"])),
                 Issuer = jwtSettings["Issuer"],

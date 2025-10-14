@@ -51,7 +51,8 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = jwtSettings["Issuer"],
         ValidAudience = jwtSettings["Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        RoleClaimType = System.Security.Claims.ClaimTypes.Role
     };
 });
 
@@ -71,6 +72,25 @@ builder.Services.AddAutoMapper(typeof(Program));
 // ===========================================================
 
 var app = builder.Build();
+// ===============================
+// 🧩 Création des rôles au démarrage
+// ===============================
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    string[] roleNames = { "Admin", "Coach", "Athlete" };
+
+    foreach (var roleName in roleNames)
+    {
+        if (!await roleManager.RoleExistsAsync(roleName))
+        {
+            await roleManager.CreateAsync(new IdentityRole(roleName));
+            Console.WriteLine($"✅ Role créé : {roleName}");
+        }
+    }
+}
+
 
 // 🚀 Pipeline HTTP
 if (app.Environment.IsDevelopment())
