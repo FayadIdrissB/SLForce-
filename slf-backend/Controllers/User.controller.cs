@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using slf_backend.Data;
 using slf_backend.Models;
+using System.Security.Claims;
 
 namespace slf_backend.Controllers
 {
@@ -17,6 +19,7 @@ namespace slf_backend.Controllers
         }
 
         // 🔹 GET /api/users
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
@@ -26,9 +29,16 @@ namespace slf_backend.Controllers
 
 
         // 🔹 GET /api/users/{id}
+        [Authorize(Roles = "Admin,Coach,Athlete")]
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(string id)
         {
+            var currentUserId = User.FindFirst("uid")?.Value;
+            var currentUserRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (currentUserRole != "Admin" && currentUserId != id)
+                return Forbid();
+
             var user = await _context.Users.FindAsync(id);
             if (user == null)
                 return NotFound(new { message = "Utilisateur introuvable" });
@@ -38,6 +48,7 @@ namespace slf_backend.Controllers
 
 
         // 🔹 POST /api/users
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser([FromBody] User user)
         {
@@ -49,9 +60,16 @@ namespace slf_backend.Controllers
 
 
         // 🔹 PUT /api/users/{id}
+        [Authorize(Roles = "Admin,Coach,Athlete")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(string id, [FromBody] User user)
         {
+            var currentUserId = User.FindFirst("uid")?.Value;
+            var currentUserRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (currentUserRole != "Admin" && currentUserId != id)
+                return Forbid();
+
             if (id != user.Id)
                 return BadRequest(new { message = "L'ID du corps et celui de l'URL ne correspondent pas." });
 
@@ -63,9 +81,16 @@ namespace slf_backend.Controllers
 
 
         // 🔹 DELETE /api/users/{id}
+        [Authorize(Roles = "Admin,Coach,Athlete")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
+            var currentUserId = User.FindFirst("uid")?.Value;
+            var currentUserRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (currentUserRole != "Admin" && currentUserId != id)
+                return Forbid();
+
             var user = await _context.Users.FindAsync(id);
             if (user == null)
                 return NotFound(new { message = "Utilisateur introuvable" });
