@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using PayPalCheckoutSdk.Core;   
 using PayPalCheckoutSdk.Orders; 
 using PayPalHttp;               
-using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 
 namespace slf_backend.Controllers
@@ -22,6 +23,7 @@ namespace slf_backend.Controllers
 
 
         // 💳 PAYPAL SECTION: Creating a PayPal Sandbox Order
+        [Authorize(Roles = "Coach")]
         [HttpPost("paypal")]
         public async Task<IActionResult> CreatePaypalPayment([FromBody] PaypalPaymentDto dto)
         {
@@ -91,12 +93,14 @@ namespace slf_backend.Controllers
 
 
         // 💳 PAYPAL SECTION: redirections after payment
+        [Authorize(Roles = "Coach,Athlete")]
         [HttpGet("success")]
         public IActionResult PaymentSuccess([FromQuery] string token)
         {
             return Ok(new { success = true, message = "Paiement PayPal validé ✅", token });
         }
-
+        
+        [Authorize(Roles = "Coach,Athlete")]
         [HttpGet("cancel")]
         public IActionResult PaymentCancelled()
         {
@@ -105,6 +109,7 @@ namespace slf_backend.Controllers
 
 
         // 💰 STRIPE PART (simulated for now)
+        [Authorize(Roles = "Coach")]
         [HttpPost("stripe")]
         public async Task<IActionResult> CreateStripePayment([FromBody] StripePaymentDto dto)
         {
