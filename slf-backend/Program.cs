@@ -72,8 +72,10 @@ builder.Services.AddAutoMapper(typeof(Program));
 // ===========================================================
 
 var app = builder.Build();
+
+
 // ===============================
-// 🧩 Création des rôles au démarrage
+// 🧩 creation of roles at startup
 // ===============================
 
 using (var scope = app.Services.CreateScope())
