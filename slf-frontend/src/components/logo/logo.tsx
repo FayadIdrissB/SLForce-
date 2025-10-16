@@ -2,6 +2,7 @@
 import { View, StyleSheet, StyleProp, ViewStyle, ImageStyle } from 'react-native'
 import React from 'react'
 import { Image } from 'expo-image'
+import imagePath from '../../constants/imagePath'
 
     
 interface LogoProps {
@@ -14,7 +15,7 @@ export default function Logo({ style, imageStyle }: LogoProps) {
     <View style={style}>
       <Image 
         style={imageStyle || styles.image} 
-        source={require("../../assets/logo.png")} 
+        source={imagePath.logo} 
         contentFit="contain" 
       />
     </View>

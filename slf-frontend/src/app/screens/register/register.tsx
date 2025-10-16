@@ -1,19 +1,22 @@
 import { View, Text, Alert, ScrollView } from 'react-native'
 import React from 'react'
-import { createHomeStyle } from '../../../styles/index.style'
-import { creatLogoStyle } from '../../../styles/logo.style'
-import { createFormStyle } from '../../../styles/form.style'
-import Logo from '../../../components/logo'
-import Button from '../../../components/button'
-import Input from '../../../components/input'
+import createFormStyle from '../style/form.style'
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons'
+import { createHomeStyle } from '../../../styles/index.style';
+import { creatLogoStyle } from '../../../components/logo/logo.style';
+import Logo from '../../../components/logo/logo';
+import Button from '../../../components/button';
+import Input from '../../../components/input';
+import useToggleFunc from '../../../hooks/useYoggleFun';
 
 export default function RegisterPage({isLogin, toggleAuth}: {isLogin: boolean, toggleAuth: () => void}) {
 
   const homeStyle = createHomeStyle()
   const logoStyle = creatLogoStyle()
   const formStyle = createFormStyle()
+
+  const {isCoach, toggleCoach} = useToggleFunc()
 
   return (
     <View style={homeStyle.container}>
@@ -37,24 +40,24 @@ export default function RegisterPage({isLogin, toggleAuth}: {isLogin: boolean, t
         </View>
 
         {/* Input */}
-        <Input label='Prenom' placeholder='ton.prenom' value=''/>
-        <Input label="Email" placeholder="ton.email@gmail.fr" value="" />
-        <Input label="Password" placeholder="ton.password" value="" />
-        <Input label="Confirm Password" placeholder="..........." value="" />
+        <Input label='Prenom' placeholder='ton.prenom' value='' secureTextEntry={false} keyboardType=""/>
+        <Input label="Email" placeholder="ton.email@gmail.fr" value="" secureTextEntry={false} keyboardType="email-address" />
+          <Input label="Password" placeholder="ton.password" value="" secureTextEntry={true} keyboardType="default" />
+        <Input label="Confirm Password" placeholder="..........." value="" secureTextEntry={true} keyboardType="default" />
   
           
           {/* Button Function */}
           <View style={formStyle.buttonFunctionContainer}>
-            <Button title='elève' onPress={() => { Alert.alert("Connecté") }} style={[formStyle.buttonFunction, {backgroundColor: 'blue'}]}>
+            <Button title='elève' onPress={toggleCoach} style={[formStyle.buttonFunction, {backgroundColor: isCoach ? '#f1f1f1' : 'blue', borderRadius: 5}]} textColor={isCoach ? 'black' : 'white'} textTransform="capitalize" >
               <Ionicons name="barbell" size={24} color="yellow" />
             </Button>
-            <Button title='coach' onPress={() => { Alert.alert("Connecté") }} style={[formStyle.buttonFunction, {backgroundColor: '#dedede', borderRadius: 5,  borderColor: '#f1f0f2', borderWidth: 1}]}>
+            <Button title='coach' onPress={toggleCoach} style={[formStyle.buttonFunction, {backgroundColor: isCoach ? "blue" : '#f1f1f1', borderRadius: 5}]} textColor={isCoach ? 'white' : 'black'} textTransform="capitalize" >
               <Ionicons name="person" size={24} color="yellow" />
             </Button>
           </View>
 
-          {/* Button */}          
-        <Button style={formStyle.button} title="Rejoindre Bearlift" onPress={() => { Alert.alert("Connecté") }} >
+          {/* Button */}            
+        <Button style={[formStyle.button,{gap: 10}]} title="Rejoindre Bearlift" onPress={() => { Alert.alert("Connecté") }} >
           <AntDesign name="fire" size={24} color="yellow" />
         </Button>
       </View>

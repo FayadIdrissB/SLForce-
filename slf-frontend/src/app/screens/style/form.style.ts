@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native"
 
-export const createFormStyle = () => {
+export default function createFormStyle() {
     const styles = StyleSheet.create({
         // Form
         linkFormContainer: {
@@ -59,6 +59,7 @@ export const createFormStyle = () => {
         },
         buttonFunctionContainer: {
             width: '100%',
+            height: 60,
             borderRadius: 5,
             padding: 6,
             gap: 14,
@@ -69,10 +70,12 @@ export const createFormStyle = () => {
         },
         buttonFunction: {
             width: '40%',
+            height: '100%',
             paddingVertical: 14,
             paddingHorizontal: 5,
-            backgroundColor: 'blue',
             borderRadius: 5,
+            justifyContent: 'center',
+            alignItems: "center",
             shadowColor: '#000',
             shadowOffset: {
                 width: 0,

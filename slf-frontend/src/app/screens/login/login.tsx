@@ -1,9 +1,9 @@
 import { View, Text, Alert } from 'react-native'
 import React from 'react'
 import { createHomeStyle } from '../../../styles/index.style'
-import { creatLogoStyle } from '../../../styles/logo.style'
-import { createFormStyle } from '../../../styles/form.style'
-import Logo from '../../../components/logo'
+import { creatLogoStyle } from '../../../components/logo/logo.style'
+import createFormStyle from '../style/form.style'
+import Logo from '../../../components/logo/logo'
 import Button from '../../../components/button'
 import Input from '../../../components/input'
 
@@ -36,7 +36,7 @@ export default function LoginPage({isLogin, toggleAuth}: {isLogin: boolean, togg
         </View>
         
         <Input label="Email" placeholder="ton.email@gmail.fr" value="" />
-        <Input label="Password" placeholder="ton.password" value=""/>
+        <Input label="Password" placeholder="ton.password" value="" secureTextEntry={true}/>
 
         <Button style={formStyle.button} title="Se Connecter" onPress={() => {Alert.alert("Connecté")}} />
       </View>
