@@ -16,7 +16,7 @@ export default function RegisterPage({isLogin, toggleAuth}: {isLogin: boolean, t
   const logoStyle = creatLogoStyle()
   const formStyle = createFormStyle()
 
-  const {isCoach, toggleCoach} = useToggleFunc()
+  const {isCoach, toggleCoach, fadeAnime} = useToggleFunc()
 
   return (
     <View style={homeStyle.container}>
@@ -35,8 +35,8 @@ export default function RegisterPage({isLogin, toggleAuth}: {isLogin: boolean, t
         <View style={formStyle.formContainer}>
 
         <View style={formStyle.linkFormContainer}>
-          <Button title='Connexion' onPress={toggleAuth} style={[{ backgroundColor: isLogin ? 'blue' : 'blue-light', borderRadius: 5 }, formStyle.linkForm]} textColor={isLogin ? 'white' : 'black'}/>
-          <Button title='Inscription' onPress={toggleAuth} style={[{ backgroundColor: isLogin ? 'blue-light' : 'blue', borderRadius: 5 }, formStyle.linkForm]} textColor={isLogin ? 'blue' : 'white'} />
+          <Button title='Connexion' onPress={toggleAuth} style={[{ backgroundColor: isLogin ? 'blue' : 'blue-light', borderRadius: 5, }, formStyle.linkForm]} textColor={isLogin ? 'white' : 'black'}/>
+          <Button title='Inscription' onPress={toggleAuth} style={[{ backgroundColor: isLogin ? 'blue-light' : 'blue', borderRadius: 5,}, formStyle.linkForm]} textColor={isLogin ? 'blue' : 'white'} />
         </View>
 
         {/* Input */}
