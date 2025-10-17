@@ -2,10 +2,10 @@ import { View, Text, Alert, ScrollView } from 'react-native'
 import React from 'react'
 import { createHomeStyle } from '../../../styles/index.style'
 import { creatLogoStyle } from '../../../components/logo/logo.style'
-import createFormStyle from '../style/form.style'
+import createFormStyle from '../../../styles/form.style'
 import Logo from '../../../components/logo/logo'
-import Button from '../../../components/button'
-import Input from '../../../components/input'
+import Button from '../../../components/button/button'
+import Input from '../../../components/input/input'
 import { AntDesign, Ionicons } from "@expo/vector-icons"
 import useTogglePasswrdView from '../../../hooks/togglePasswrdView'
 

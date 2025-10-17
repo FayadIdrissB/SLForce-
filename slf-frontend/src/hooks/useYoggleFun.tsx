@@ -3,6 +3,7 @@ import { Animated } from "react-native"
 
 export default function useYoggleFun() {
     const fadeAnime = useRef(new Animated.Value(0)).current
+    const [isCoach, setIsCoach] = useState(false)
 
     const fadeIn = () => {
         Animated.timing(fadeAnime, {
@@ -18,7 +19,6 @@ export default function useYoggleFun() {
             useNativeDriver: true
         }).start()
     }
-    const [isCoach, setIsCoach] = useState(false)
 
     const toggleCoach = () => {
 

@@ -1,10 +1,14 @@
 import { Stack } from 'expo-router';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function RootLayout() {
   return (
-    <Stack screenOptions={{ headerShown: true, headerStyle: { backgroundColor: "blue" }, headerTintColor: "white", }}>
-      <Stack.Screen name="index" options={{ headerTitle: "bearlift" }} />
-      <Stack.Screen name="screens" options={{ headerTitle: "bearlift" }} />
-    </Stack>
+    <SafeAreaProvider>
+      <Stack screenOptions={{ headerShown: true }}>
+        <Stack.Screen name="index" options={{ headerTitle: "Bearlift" }} />
+        <Stack.Screen name="screens" options={{ headerTitle: "Bearlift" }} />
+        <Stack.Screen name="security" options={{ headerTitle: "Securité" }} />
+      </Stack>
+    </SafeAreaProvider>
   );
 }

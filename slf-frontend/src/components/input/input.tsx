@@ -1,6 +1,7 @@
 import { View, Text, TextInput, ViewStyle, StyleProp, StyleSheet } from 'react-native'
 import React, { PropsWithChildren } from 'react'
 import { Ionicons } from "@expo/vector-icons"
+import inputStyle from './style';
 
 interface InputProps {
   label?: string;
@@ -15,6 +16,8 @@ interface InputProps {
 
 export default function Input({ label, placeholder, value, context, secureTextEntry, keyboardType, ionicon1, ionicon2 }: InputProps) {
 
+  const styles = inputStyle()
+
   return (
     <View style={styles.formGroup}>
       <Text style={styles.label}>{label}</Text>
@@ -26,32 +29,4 @@ export default function Input({ label, placeholder, value, context, secureTextEn
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-
-  formGroup: {
-    gap: 4,
-    width: '100%',
-  },
-  label: {
-    fontSize: 16,
-    color: 'gray',
-    fontWeight: 'bold',
-  },
-  inputGroup: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#f1f1f1',
-    padding: 5,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-  input: {
-    flex: 1,
-    padding: 5,
-  },
-})
 
