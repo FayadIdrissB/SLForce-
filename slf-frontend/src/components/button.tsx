@@ -1,4 +1,4 @@
-import { View, Text, StyleProp, ViewStyle } from 'react-native'
+import { TouchableOpacity, Text, StyleProp, ViewStyle } from 'react-native'
 import React from 'react'
 
 // Le composant ButtonProps est une interface qui décrit les propriétés de Button
@@ -14,9 +14,9 @@ interface ButtonProps {
 // Le composant Button est une fonction qui accepte les propriétés définies dans l'interface ButtonProps
 export default function Button({ title, onPress, style, textColor, textTransform, children }: ButtonProps) {
   return (
-    <View style={[{ padding: 10, alignItems: 'center', justifyContent: 'center', borderRadius: 5 }, style]}>
+    <TouchableOpacity style={[{ padding: 10, alignItems: 'center', justifyContent: 'center', borderRadius: 5 }, style]} onPress={onPress}>
       {children}
-      <Text style={{ color: textColor || "white", fontSize: 16 , textTransform: textTransform || "none" }} onPress={onPress}>{title}</Text>
-    </View>
+      <Text style={{ color: textColor || "white", fontSize: 16 , textTransform: textTransform || "none" }}>{title}</Text>
+    </TouchableOpacity>
   )
 }

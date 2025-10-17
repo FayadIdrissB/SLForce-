@@ -9,6 +9,7 @@ import Logo from '../../../components/logo/logo';
 import Button from '../../../components/button';
 import Input from '../../../components/input';
 import useToggleFunc from '../../../hooks/useYoggleFun';
+import useTogglePasswrdView from '../../../hooks/togglePasswrdView';
 
 export default function RegisterPage({isLogin, toggleAuth}: {isLogin: boolean, toggleAuth: () => void}) {
 
@@ -16,7 +17,8 @@ export default function RegisterPage({isLogin, toggleAuth}: {isLogin: boolean, t
   const logoStyle = creatLogoStyle()
   const formStyle = createFormStyle()
 
-  const {isCoach, toggleCoach, fadeAnime} = useToggleFunc()
+  const { isCoach, toggleCoach, fadeAnime } = useToggleFunc()
+  const {isPasswordVisible, togglePasswordVisibility} = useTogglePasswrdView()
 
   return (
     <View style={homeStyle.container}>
@@ -40,10 +42,10 @@ export default function RegisterPage({isLogin, toggleAuth}: {isLogin: boolean, t
         </View>
 
         {/* Input */}
-        <Input label='Prenom' placeholder='ton.prenom' value='' secureTextEntry={false} keyboardType=""/>
-        <Input label="Email" placeholder="ton.email@gmail.fr" value="" secureTextEntry={false} keyboardType="email-address" />
-          <Input label="Password" placeholder="ton.password" value="" secureTextEntry={true} keyboardType="default" />
-        <Input label="Confirm Password" placeholder="..........." value="" secureTextEntry={true} keyboardType="default" />
+        <Input label='Prenom' placeholder='ton.prenom' value='' secureTextEntry={false} keyboardType="" ionicon1={<Ionicons name="person" size={24} color="blue" />} />
+        <Input label="Email" placeholder="ton.email@gmail.fr" value="" secureTextEntry={false} keyboardType="email-address" ionicon1={<Ionicons name="mail" size={24} color="blue" />} />
+          <Input label="Password" placeholder="ton.password" value="" secureTextEntry={!isPasswordVisible} keyboardType="default" ionicon1={<Ionicons name="lock-closed" size={24} color="blue" />} ionicon2={isPasswordVisible ? <Ionicons name="eye-off" size={24} color="blue" onPress={togglePasswordVisibility}/> : <Ionicons name="eye" size={24} color="blue" onPress={togglePasswordVisibility}/> } />
+        <Input label="Confirm Password" placeholder="********" value="" secureTextEntry={!isPasswordVisible} keyboardType="default" ionicon1={<Ionicons name="lock-closed" size={24} color="blue" />} ionicon2={isPasswordVisible ? <Ionicons name="eye-off" size={24} color="blue" onPress={togglePasswordVisibility}/> : <Ionicons name="eye" size={24} color="blue" onPress={togglePasswordVisibility}/> } />
   
           
           {/* Button Function */}

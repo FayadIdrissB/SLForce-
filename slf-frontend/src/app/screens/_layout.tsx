@@ -4,7 +4,7 @@ import { Stack } from 'expo-router'
 
 export default function ScreenLayout({children}: {children: React.ReactNode}) {
     return (
-        <View style={{ flex: 1}}>
+        <View style={{ flex: 1, backgroundColor: "white"}}>
             {children}
         </View>
     )
