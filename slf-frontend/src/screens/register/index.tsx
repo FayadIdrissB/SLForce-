@@ -1,5 +1,4 @@
-// Import from libraries
-import { useRouter } from "expo-router";
+// Import of the different libraries
 import { View, ScrollView, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -10,14 +9,12 @@ import AuthForm from "../../components/authForm/app";
 const logo = require("../../../assets/logo.png");
 
 
-export default function Home() {
-  const router = useRouter();
-
+export default function Register() {
   return (
     <SafeAreaView className="flex-1 bg-slate-50">
       <ScrollView
         className="flex-1 pt-40"
-        contentContainerClassName="flex-grow px-5 pb-20"
+        contentContainerClassName="flex-grow px-5 pb-32"
         showsVerticalScrollIndicator={false}
       >
         {/* HEADER */}
@@ -34,12 +31,8 @@ export default function Home() {
         </View>
 
         {/* FORM */}
-        <AuthForm
-          {...({
-            defaultTab: "connexion",
-            onSwitchToRegister: () => router.push("/register"),
-          } as any)}
-        />
+        {/* @ts-expect-error AuthForm props are not typed in the module */}
+        <AuthForm defaultTab="register" />
       </ScrollView>
     </SafeAreaView>
   );
