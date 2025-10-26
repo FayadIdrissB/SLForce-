@@ -1,31 +1,40 @@
-import { StyleSheet } from 'react-native';
+// import of the different libraries
+import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { View, ScrollView, Image, Text, TouchableOpacity } from "react-native";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+// import of the different assets
+const logo = require("../../assets/images/logo.png");
 
-export default function TabOneScreen() {
+// import of the different components
+import AuthForm from "../../components/authForm";
+
+// import CSS styles
+import styles from "../../styles/home";
+
+
+export default function Home() {
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <SafeAreaView style={styles.home__safeArea}>
+      <ScrollView
+        style={styles.home__scroll}
+        contentContainerStyle={styles.home__scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* HEADER */}
+        <View style={styles.home__header}>
+          <View style={styles.home__logoBackground}>
+            <Image source={logo} style={styles.home__logoImage} />
+          </View>
+          <Text style={styles.home__title}>SLForce</Text>
+          <Text style={styles.home__subtitle}>Street Workout Community</Text>
+        </View>
+        
+        {/* FORM */}
+        <AuthForm />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
