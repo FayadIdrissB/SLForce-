@@ -1,7 +1,7 @@
 // import of the different libraries
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, ScrollView, TouchableOpacity, Linking } from "react-native"; 
+import { View, Text, ScrollView, Linking } from "react-native"; 
 
 // import CSS styles
 import styles from "../../styles/privacy";

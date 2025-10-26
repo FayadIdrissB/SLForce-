@@ -1,8 +1,6 @@
 // import of the different libraries
-import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { View, ScrollView, Image, Text, TouchableOpacity } from "react-native";
+import { View, ScrollView, Image, Text } from "react-native";
 
 // import of the different assets
 const logo = require("../../assets/images/logo.png");
