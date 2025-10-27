@@ -13,7 +13,8 @@ interface AuthFormProps {
 export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [role, setRole] = useState<"eleve" | "coach">("eleve");
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.auth__container}>
@@ -81,7 +82,7 @@ export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
 
           <TouchableOpacity
             style={styles.auth__button}
-            onPress={() => navigation.navigate("privacy")}
+            onPress={() => navigation.navigate("settings")}
           >
             <Text style={styles.auth__buttonText}>Se connecter 🔥</Text>
           </TouchableOpacity>
