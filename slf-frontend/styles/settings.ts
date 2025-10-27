@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f5f5f5",
   },
+
   header: {
     padding: 20,
     backgroundColor: "#fff",
@@ -21,6 +22,7 @@ export const styles = StyleSheet.create({
     color: "#666",
     marginTop: 5,
   },
+
   profileSection: {
     backgroundColor: "#fff",
     padding: 20,
@@ -31,12 +33,6 @@ export const styles = StyleSheet.create({
   profileInfo: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  profileImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: "#e0e0e0",
   },
   profileTextContainer: {
     marginLeft: 15,
@@ -59,118 +55,9 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     color: "#666",
   },
+
   section: {
     marginBottom: 20,
-  },
-  sectionTitle: {
-    fontSize: 13,
-    fontWeight: "600",
-    color: "#666",
-    marginLeft: 20,
-    marginBottom: 10,
-  },
-  menuItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: "#fff",
-    padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0",
-  },
-  menuItemLeft: {
-    flexDirection: "row",
-    alignItems: "center",
-    flex: 1,
-  },
-  iconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: "#f0f0f0",
-    justifyContent: "center",
-    alignItems: "center",
-    marginRight: 15,
-  },
-  icon: {
-    fontSize: 20,
-  },
-  menuItemTitle: {
-    fontSize: 16,
-    fontWeight: "500",
-    color: "#000",
-  },
-  menuItemSubtitle: {
-    fontSize: 14,
-    color: "#666",
-    marginTop: 2,
-  },
-  chevron: {
-    fontSize: 24,
-    color: "#666",
-    marginLeft: 10,
-  },
-  switch: {
-    marginLeft: 10,
-  },
-  dangerZone: {
-    marginTop: 20,
-  },
-  dangerZoneTitle: {
-    fontSize: 13,
-    fontWeight: "600",
-    color: "#FF3B30",
-    marginLeft: 20,
-    marginBottom: 10,
-  },
-  dangerZoneCard: {
-    marginHorizontal: 15,
-    backgroundColor: "#fff",
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#FF3B30",
-    overflow: "hidden",
-  },
-  dangerText: {
-    color: "#FF3B30",
-  },
-  logoutButton: {
-    backgroundColor: "#FF3B30",
-    marginHorizontal: 15,
-    marginVertical: 20,
-    padding: 15,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  logoutButtonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  footer: {
-    alignItems: "center",
-    marginVertical: 20,
-    paddingBottom: 30,
-  },
-  appIcon: {
-    width: 50,
-    height: 50,
-    borderRadius: 12,
-    marginBottom: 10,
-  },
-  appVersion: {
-    fontSize: 14,
-    color: "#666",
-    marginBottom: 5,
-  },
-  copyright: {
-    fontSize: 12,
-    color: "#999",
-    marginBottom: 5,
-  },
-  madeWith: {
-    fontSize: 12,
-    color: "#666",
   },
 
   warningTitle: {
@@ -189,6 +76,16 @@ export const styles = StyleSheet.create({
     padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#f0f0f0",
+  },
+
+  iconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#f0f0f0",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 15,
   },
 
   iconTrash: {
