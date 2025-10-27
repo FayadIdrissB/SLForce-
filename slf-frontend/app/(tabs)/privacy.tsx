@@ -73,7 +73,7 @@ export default function Privacy() {
               style={styles.privacy__link}
               onPress={() => handleOpenLink("mailto:contact@slforce.com")}
             >
-              contact@slforce.com
+              contact@slforce.fr
             </Text>
           </Text>
         </View>
