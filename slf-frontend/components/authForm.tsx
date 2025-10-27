@@ -1,12 +1,9 @@
-// import of the different libraries
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useState } from "react";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { RootStackParamList } from "../types/navigation";
-
-// Import CSS styles
+import { RootStackParamList } from "../types/navigation"; // ajuste le chemin si nécessaire
 import styles from "./ui/authForm";
 
 interface AuthFormProps {
@@ -85,7 +82,7 @@ export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
 
           <TouchableOpacity
             style={styles.auth__button}
-            onPress={() => navigation.navigate("payment")}
+            onPress={() => navigation.navigate("gpu")}
           >
             <Text style={styles.auth__buttonText}>Se connecter 🔥</Text>
           </TouchableOpacity>
