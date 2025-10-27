@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
 
   auth__roleSection: {
-    marginTop: 6,
+    marginTop: 15,
     marginBottom: 10,
   },
   auth__roleLabel: {
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#2563EB",
     paddingVertical: 16,
     borderRadius: 12,
-    marginTop: 15,
+    marginTop: 20,
   },
   auth__buttonText: {
     color: "#FFFFFF",
