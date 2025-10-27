@@ -32,7 +32,7 @@ export default function Privacy() {
         <View style={styles.privacy__section}>
           <Text style={styles.privacy__sectionTitle}>1. Introduction</Text>
           <Text style={styles.privacy__text}>
-            Bienvenue sur SLForce 💪 — une application dédiée à la communauté du Street Workout.
+            Bienvenue sur SLForce — une application dédiée à la communauté du Street Workout.
             Nous prenons la protection de vos données personnelles très au sérieux. 
             Cette politique explique comment nous collectons, utilisons et protégeons vos informations.
           </Text>

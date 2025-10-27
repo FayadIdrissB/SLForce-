@@ -160,7 +160,7 @@ export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
                     role === "eleve" && styles.auth__roleButtonTextActive,
                   ]}
                 >
-                  💪 ÉLÈVE
+                  🙎 ÉLÈVE
                 </Text>
               </TouchableOpacity>
 
