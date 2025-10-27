@@ -172,4 +172,68 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     color: "#666",
   },
+
+  warningTitle: {
+    paddingLeft: 15,
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#d32f2f",
+    marginBottom: 10,
+  },
+
+  deleteAccountContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#fff",
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0",
+  },
+
+  iconTrash: {
+    fontSize: 20,
+  },
+
+  deleteAccountTextContainer: {
+    flexDirection: "column",
+    flex: 1,
+  },
+
+  deleteAccountTitle: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#000",
+  },
+
+  deleteAccountSubtitle: {
+    fontSize: 14,
+    color: "#666",
+    marginTop: 2,
+  },
+
+  arrowContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 10,
+  },
+
+  arrowText: {
+    fontSize: 24,
+    color: "#666",
+  },
+
+  logoutButtonRed: {
+    backgroundColor: "#d32f2f",
+    marginHorizontal: 20,
+    marginVertical: 10,
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  logoutButtonRedText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "500",
+  },
 });

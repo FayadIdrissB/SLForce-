@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { styles } from "../../styles/settings";
 import { SectionCardSettings } from "../../components/SectionCardSettings";
 import { SettingCard } from "../../components/SettingCard";
@@ -107,6 +114,31 @@ export default function SettingsScreen() {
           hasChevron
         />
       </SectionCardSettings>
+
+      <View style={styles.section}>
+        <Text style={styles.warningTitle}>ZONE DANGEREUSE</Text>
+
+        <View style={styles.deleteAccountContainer}>
+          <View style={styles.iconContainer}>
+            <Text style={styles.iconTrash}>🗑️</Text>
+          </View>
+
+          <View style={styles.deleteAccountTextContainer}>
+            <Text style={styles.deleteAccountTitle}>Supprimer mon compte</Text>
+            <Text style={styles.deleteAccountSubtitle}>
+              Cette action est irréversible
+            </Text>
+          </View>
+
+          <View style={styles.arrowContainer}>
+            <Text style={styles.arrowText}>›</Text>
+          </View>
+        </View>
+      </View>
+
+      <TouchableOpacity style={styles.logoutButtonRed}>
+        <Text style={styles.logoutButtonRedText}>Se déconnecter</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
