@@ -57,6 +57,14 @@ export default function Privacy() {
           </Text>
         </View>
 
+        {/* SECTION 4 */}
+        <View style={styles.privacy__section}>
+          <Text style={styles.privacy__sectionTitle}>4. Données bancaires et paiements</Text>
+          <Text style={styles.privacy__text}>
+            Les paiements effectués sur la plateforme sont sécurisés. Vos données bancaires ne sont pas stockées directement par SLForce, mais sont traitées par un prestataire de paiement conforme aux normes de sécurité internationales (par exemple PCI DSS). SLForce n’a jamais accès aux numéros de carte ou à vos informations sensibles.
+          </Text>
+        </View>
+
         {/* CONTACT */}
         <View style={styles.privacy__footer}>
           <Text style={styles.privacy__text}>
