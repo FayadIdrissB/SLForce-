@@ -25,7 +25,7 @@ export default function Privacy() {
         {/* HEADER */}
         <View style={styles.privacy__header}>
           <Text style={styles.privacy__title}>Politique de Confidentialité</Text>
-          <Text style={styles.privacy__subtitle}>Dernière mise à jour : 26 octobre 2025</Text>
+          <Text style={styles.privacy__subtitle}>Dernière mise à jour : 27 octobre 2025</Text>
         </View>
 
         {/* SECTION 1 */}
