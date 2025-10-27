@@ -10,6 +10,7 @@ interface AuthFormProps {
   defaultTab?: "login" | "register";
 }
 
+
 export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [role, setRole] = useState<"eleve" | "coach">("eleve");
