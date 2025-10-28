@@ -10,6 +10,7 @@ import {
 import { styles } from "../../styles/settings";
 import { SectionCardSettings } from "../../components/SectionCardSettings";
 import { SettingCard } from "../../components/SettingCard";
+import About from "../../components/About";
 
 export default function SettingsScreen() {
   return (
@@ -21,10 +22,9 @@ export default function SettingsScreen() {
 
       <View style={styles.profileSection}>
         <View style={styles.profileInfo}>
-          {/* <Image
-            style={styles.profileImage}
-            source={require("../../assets/images/default-avatar.png")}
-          /> */}
+          <View style={styles.iconContainerProfil}>
+            <Text style={styles.iconText}>👤</Text>
+          </View>
           <View style={styles.profileTextContainer}>
             <Text style={styles.profileName}>Youssef</Text>
             <Text style={styles.profileUsername}>@youssef_beast</Text>
@@ -139,6 +139,7 @@ export default function SettingsScreen() {
       <TouchableOpacity style={styles.logoutButtonRed}>
         <Text style={styles.logoutButtonRedText}>Se déconnecter</Text>
       </TouchableOpacity>
+      <About />
     </ScrollView>
   );
 }

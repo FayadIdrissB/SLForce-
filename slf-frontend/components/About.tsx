@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { styles } from "./ui/about";
 
-export default function AboutScreen() {
+export default function About() {
   return (
     <View style={styles.container}>
       {/* Logo */}

@@ -31,6 +31,22 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#f0f0f0",
   },
+  iconContainerProfil: {
+    width: 60,
+    height: 60,
+    backgroundColor: "#4285F4", // bleu vibrant
+    borderRadius: 16, // arrondi comme la carte 💪
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 3, // pour Android
+  },
+  iconText: {
+    fontSize: 28,
+  },
   profileInfo: {
     flexDirection: "row",
     alignItems: "center",
