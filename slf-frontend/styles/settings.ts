@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
   },
 
   header: {
+    paddingTop: 50,
     padding: 20,
     backgroundColor: "#fff",
     borderBottomWidth: 1,
@@ -58,6 +59,9 @@ export const styles = StyleSheet.create({
 
   section: {
     marginBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderColor: "#d32f2f",
   },
 
   warningTitle: {
@@ -74,8 +78,10 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: "#fff",
     padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0",
+    borderWidth: 1,
+    borderRadius: 12,
+    shadowColor: "#c03939ff",
+    borderColor: "#d32f2f",
   },
 
   iconContainer: {

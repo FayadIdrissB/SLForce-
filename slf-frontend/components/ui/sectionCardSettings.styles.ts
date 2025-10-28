@@ -3,6 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   section: {
     marginBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   sectionTitle: {
     fontSize: 13,
