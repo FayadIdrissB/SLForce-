@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { Image, Text, View } from "react-native";
 import { styles } from "./ui/about";
 
 export default function About() {
@@ -17,12 +17,6 @@ export default function About() {
       <Text style={styles.title}>BearLift v1.0.0</Text>
       <Text style={styles.subtitle}>
         © 2024 BearLift. Tous droits réservés.
-      </Text>
-
-      {/* Bas de page */}
-      <Text style={styles.footer}>
-        Made with <Text style={styles.emoji}>💪</Text> pour la{" "}
-        <Text style={styles.highlight}>street workout community</Text>
       </Text>
     </View>
   );

@@ -1,6 +1,11 @@
 export type RootStackParamList = {
   home: undefined;
   register: undefined;
-  privacy: undefined;
+
+  // Page Principale
+  profile: undefined;
   settings: undefined;
+
+  // Page Setting
+  privacy: undefined;
 };

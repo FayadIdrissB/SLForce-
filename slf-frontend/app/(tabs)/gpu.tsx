@@ -1,10 +1,10 @@
-// Import des librairies nécessaires
+// import of the different libraries
 import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { Image, Linking, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-// Import du style
+// import CSS styles
 import styles from "../../styles/gpu";
 
 
