@@ -1,9 +1,9 @@
 // import of the different libraries
+import { Stack } from "expo-router";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 // import CSS styles
-import { Stack } from "expo-router";
 import styles from "../../styles/payment";
 
 

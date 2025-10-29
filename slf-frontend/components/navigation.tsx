@@ -1,4 +1,5 @@
 // import of the different libraries
+import { useRouter } from 'expo-router';
 import { Platform, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -7,7 +8,6 @@ import { styles } from './ui/navigation';
 
 type NavigationProps = {
   activePage: string;
-  onNavigate: (page: string) => void;
 };
 
 const IconWrapper = ({ emoji, size = 22 }: { emoji: string; size?: number }) => (
@@ -15,8 +15,9 @@ const IconWrapper = ({ emoji, size = 22 }: { emoji: string; size?: number }) => 
 );
 
 
-const Navigation: React.FC<NavigationProps> = ({ activePage, onNavigate }) => {
+const Navigation: React.FC<NavigationProps> = ({ activePage }) => {
   const insets = useSafeAreaInsets();
+  const router = useRouter();
   return (
     <View
       style={[
@@ -26,7 +27,7 @@ const Navigation: React.FC<NavigationProps> = ({ activePage, onNavigate }) => {
     >
       <View style={styles.nav__container}>
         <TouchableOpacity
-          onPress={() => onNavigate('profile')}
+          onPress={() => router.push('/(tabs)/profile')}
           style={[styles.nav__button, activePage === 'profile' && styles.nav__buttonActive]}
         >
           <View
@@ -45,7 +46,7 @@ const Navigation: React.FC<NavigationProps> = ({ activePage, onNavigate }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => onNavigate('search')}
+          onPress={() => router.push('/(tabs)/search')}
           style={[styles.nav__button, activePage === 'search' && styles.nav__buttonActive]}
         >
           <View
@@ -64,7 +65,7 @@ const Navigation: React.FC<NavigationProps> = ({ activePage, onNavigate }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => onNavigate('messages')}
+          onPress={() => router.push('/(tabs)/chat')}
           style={[styles.nav__button, activePage === 'messages' && styles.nav__buttonActive]}
         >
           <View
@@ -83,7 +84,7 @@ const Navigation: React.FC<NavigationProps> = ({ activePage, onNavigate }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => onNavigate('settings')}
+          onPress={() => router.push('/(tabs)/settings')}
           style={[styles.nav__button, activePage === 'settings' && styles.nav__buttonActive]}
         >
           <View

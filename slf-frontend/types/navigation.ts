@@ -3,6 +3,8 @@ export type RootStackParamList = {
   register: undefined;
 
   // Page Principale
+  chat: undefined;
+  search: undefined;
   profile: undefined;
   settings: undefined;
 

@@ -22,7 +22,7 @@ const IconWrapper = ({ emoji, size = 24 }: { emoji: string; size?: number }) => 
   <Text style={{ fontSize: size }}>{emoji}</Text>
 );
 
-const BearLiftAthlete = () => {
+const Profile = () => {
   const [activePage, setActivePage] = useState('profile');
   const [isEditingRecords, setIsEditingRecords] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
@@ -390,10 +390,10 @@ const BearLiftAthlete = () => {
           </View>
         </ScrollView>
 
-        <Navigation activePage={activePage} onNavigate={setActivePage} />
+        <Navigation activePage={activePage} />
       </View>
     </SafeAreaView>
   );
 };
 
-export default BearLiftAthlete;
+export default Profile;

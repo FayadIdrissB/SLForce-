@@ -83,7 +83,7 @@ export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
 
           <TouchableOpacity
             style={styles.auth__button}
-            onPress={() => navigation.navigate("profile")}
+            onPress={() => navigation.navigate("chat")}
           >
             <Text style={styles.auth__buttonText}>Se connecter 🔥</Text>
           </TouchableOpacity>
