@@ -177,10 +177,6 @@ export const styles = StyleSheet.create({
     shadowRadius: 8,
   },
 
-  profile__photoEmoji: {
-    fontSize: 56,
-  },
-
   profile__cameraButton: {
     position: 'absolute',
     bottom: 0,

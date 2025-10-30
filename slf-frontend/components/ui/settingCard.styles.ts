@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#f0f0f0",
+    borderRadius: 15,
   },
   menuItemLeft: {
     flexDirection: "row",

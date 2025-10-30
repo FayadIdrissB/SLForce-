@@ -1,4 +1,5 @@
 // import of the different libraries
+import { Stack } from 'expo-router';
 import { useState } from 'react';
 import {
   Image,
@@ -11,10 +12,8 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import of the different components 
-import Navigation from '../../components/navigation';
 
 // import CSS styles
-import { Stack } from 'expo-router';
 import { styles } from '../../styles/profile';
 
 
@@ -22,7 +21,7 @@ const IconWrapper = ({ emoji, size = 24 }: { emoji: string; size?: number }) => 
   <Text style={{ fontSize: size }}>{emoji}</Text>
 );
 
-const BearLiftAthlete = () => {
+const Profile = () => {
   const [activePage, setActivePage] = useState('profile');
   const [isEditingRecords, setIsEditingRecords] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
@@ -73,9 +72,8 @@ const BearLiftAthlete = () => {
           <View style={styles.header__content}>
             <View>
               <Text style={styles.header__title}>Ma Fiche Athlète</Text>
-              <Text style={styles.header__subtitle}>Street Lifting Records 🏆</Text>
+              <Text style={styles.header__subtitle}>Street Lifting Records</Text>
             </View>
-            <IconWrapper emoji="🏆" size={40} />
           </View>
         </View>
 
@@ -106,7 +104,7 @@ const BearLiftAthlete = () => {
                   <Image source={{ uri: profile.photo }} style={styles.profile__photo} />
                 ) : (
                   <View style={styles.profile__photoPlaceholder}>
-                    <Text style={styles.profile__photoEmoji}>💪</Text>
+                    <Text></Text>
                   </View>
                 )}
                 {isEditingProfile && (
@@ -260,7 +258,7 @@ const BearLiftAthlete = () => {
               {/* Muscle-up */}
               <View style={[styles.recordItem, styles['recordItem--red']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji="🔥" size={30} />
+                  <IconWrapper emoji={''}  />
                   <Text style={styles.recordItem__label}>MUSCLE-UP</Text>
                   {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
                 </View>
@@ -284,7 +282,7 @@ const BearLiftAthlete = () => {
               {/* Traction */}
               <View style={[styles.recordItem, styles['recordItem--blue']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji="🦾" size={30} />
+                  <IconWrapper emoji=""  />
                   <Text style={styles.recordItem__label}>TRACTION</Text>
                   {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
                 </View>
@@ -308,7 +306,7 @@ const BearLiftAthlete = () => {
               {/* Dips */}
               <View style={[styles.recordItem, styles['recordItem--green']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji="💪" size={30} />
+                  <IconWrapper emoji=""/>
                   <Text style={styles.recordItem__label}>DIPS</Text>
                   {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
                 </View>
@@ -332,7 +330,7 @@ const BearLiftAthlete = () => {
               {/* Squat */}
               <View style={[styles.recordItem, styles['recordItem--yellow']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji="🦵" size={30} />
+                  <IconWrapper emoji="" />
                   <Text style={styles.recordItem__label}>SQUAT</Text>
                   {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
                 </View>
@@ -389,11 +387,9 @@ const BearLiftAthlete = () => {
             </View>
           </View>
         </ScrollView>
-
-        <Navigation activePage={activePage} onNavigate={setActivePage} />
       </View>
     </SafeAreaView>
   );
 };
 
-export default BearLiftAthlete;
+export default Profile;
