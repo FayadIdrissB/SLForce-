@@ -14,7 +14,6 @@ import styles from './ui/searchHeader';
 interface Category {
   id: string;
   label: string;
-  icon: string;
 }
 
 interface SearchHeaderProps {
@@ -75,7 +74,6 @@ const SearchHeader: React.FC<SearchHeaderProps> = React.memo(
                 selectedCategory === cat.id && styles['header__category--active'],
               ]}
             >
-              <Text style={styles['header__category-icon']}>{cat.icon}</Text>
               <Text
                 style={[
                   styles['header__category-text'],
@@ -91,23 +89,17 @@ const SearchHeader: React.FC<SearchHeaderProps> = React.memo(
         {/* --- STATS --- */}
         <View style={styles['header__stats']}>
           <View style={styles['header__stat-card']}>
-            <Text style={styles['header__stat-emoji']}>👥</Text>
             <Text style={styles['header__stat-value']}>30+</Text>
             <Text style={styles['header__stat-label']}>Coachs</Text>
           </View>
           <View style={styles['header__stat-card']}>
-            <Text style={styles['header__stat-emoji']}>⭐</Text>
             <Text style={styles['header__stat-value']}>4.8</Text>
             <Text style={styles['header__stat-label']}>Note moy.</Text>
           </View>
           <View style={styles['header__stat-card']}>
-            <Text style={styles['header__stat-emoji']}>🔥</Text>
             <Text style={styles['header__stat-value']}>76+</Text>
             <Text style={styles['header__stat-label']}>Élèves</Text>
           </View>
-        </View>
-        <View style={styles['header__results']}>
-          <Text style={styles['header__results-title']}>Résultats</Text>
         </View>
       </View>
     );

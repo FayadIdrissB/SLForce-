@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 8,
     position: 'absolute',
-    bottom: -45,
+    bottom: -20,
     left: 0,
     right: 0,
   },

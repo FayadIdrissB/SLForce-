@@ -10,7 +10,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import of the different components
-import Navigation from '../../components/navigation';
 import SearchHeader from '../../components/searchHeader';
 
 // import CSS styles
@@ -34,11 +33,10 @@ interface Coach {
 }
 
 const CATEGORIES = [
-  { id: 'all', label: 'Tous', icon: '🔥' },
-  { id: 'calisthenics', label: 'Calisthenics', icon: '💪' },
-  { id: 'musculation', label: 'Street-Lifting', icon: '🏋️' },
-  { id: 'cardio', label: 'Endurence', icon: '🏃' },
-  { id: 'nutrition', label: 'Freestyle', icon: '🫣' },
+  { id: 'all', label: 'Tous' },
+  { id: 'musculation', label: 'Street-Lifting' },
+  { id: 'cardio', label: 'Endurance' },
+  { id: 'nutrition', label: 'Freestyle' },
 ];
 
 const Search: React.FC = () => {
@@ -59,14 +57,15 @@ const Search: React.FC = () => {
       experience: '8 ans',
       verified: true,
       premium: true,
-      description: 'Spécialiste en street workout et calisthenics. Je t\'aide à maîtriser les figures avancées !',
-      skills: ['Muscle-ups', 'Handstand', 'Planche'],
+      description:
+        "Spécialiste en street workout et calisthenics. Je t'aide à maîtriser les figures avancées !",
+      skills: ['Street-Lifting'],
     },
     {
       id: 2,
       name: 'Coach Sarah',
       avatar: '🏋️',
-      speciality: 'Musculation & Force',
+      speciality: 'Calisthenics Expert',
       location: 'Paris, France',
       rating: 4.8,
       reviews: 98,
@@ -75,14 +74,15 @@ const Search: React.FC = () => {
       experience: '5 ans',
       verified: true,
       premium: false,
-      description: 'Coach certifiée en musculation. Programme personnalisé pour atteindre tes objectifs !',
-      skills: ['Force', 'Prise de masse', 'Technique'],
+      description:
+        'Coach certifiée en musculation. Programme personnalisé pour atteindre tes objectifs !',
+      skills: ['Force', 'Street-Lifting'],
     },
     {
       id: 3,
       name: 'Coach Karim',
       avatar: '🥇',
-      speciality: 'Street Workout Pro',
+      speciality: 'Calisthenics Expert',
       location: 'Marseille, France',
       rating: 5.0,
       reviews: 156,
@@ -91,14 +91,15 @@ const Search: React.FC = () => {
       experience: '10 ans',
       verified: true,
       premium: true,
-      description: 'Champion national de street workout. Transforme ton physique en 3 mois garanti !',
-      skills: ['Front Lever', 'Human Flag', 'One Arm Pull-up'],
+      description:
+        'Champion national de street workout. Transforme ton physique en 3 mois garanti !',
+      skills: ['Street-Lifting', 'Endurence'],
     },
     {
       id: 4,
       name: 'Coach Aya',
       avatar: '💃',
-      speciality: 'Cardio & Mobilité',
+      speciality: 'Calisthenics Expert',
       location: 'Bordeaux, France',
       rating: 4.7,
       reviews: 82,
@@ -107,14 +108,15 @@ const Search: React.FC = () => {
       experience: '4 ans',
       verified: true,
       premium: false,
-      description: 'Spécialisée en cardio et souplesse. Perte de poids et condition physique optimale !',
-      skills: ['HIIT', 'Stretching', 'Endurance'],
+      description:
+        'Spécialisée en cardio et souplesse. Perte de poids et condition physique optimale !',
+      skills: ['Endurence'],
     },
     {
       id: 5,
       name: 'Coach Ahmed',
       avatar: '🎯',
-      speciality: 'Nutrition Sportive',
+      speciality: 'Calisthenics Expert',
       location: 'Lille, France',
       rating: 4.9,
       reviews: 103,
@@ -123,15 +125,17 @@ const Search: React.FC = () => {
       experience: '6 ans',
       verified: true,
       premium: true,
-      description: 'Nutritionniste diplômé. Plans alimentaires sur mesure pour performers !',
-      skills: ['Diététique', 'Perte de poids', 'Prise de masse'],
+      description:
+        'Nutritionniste diplômé. Plans alimentaires sur mesure pour performers !',
+      skills: ['Endurence'],
     },
   ];
 
-  const filteredCoaches = coaches.filter((coach) =>
-    coach.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    coach.speciality.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    coach.location.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredCoaches = coaches.filter(
+    (coach) =>
+      coach.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      coach.speciality.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      coach.location.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const renderCoach = ({ item }: { item: Coach }) => (
@@ -148,9 +152,6 @@ const Search: React.FC = () => {
                 <Text style={styles['search__coach-verified-icon']}>✓</Text>
               </View>
             )}
-            {item.premium && (
-              <Text style={styles['search__coach-premium']}>👑</Text>
-            )}
           </View>
           <Text style={styles['search__coach-speciality']}>{item.speciality}</Text>
           <View style={styles['search__coach-location-wrapper']}>
@@ -159,17 +160,16 @@ const Search: React.FC = () => {
           </View>
           <View style={styles['search__coach-stats']}>
             <View style={styles['search__coach-stat']}>
-              <Text style={styles['search__coach-stat-icon']}>⭐</Text>
-              <Text style={styles['search__coach-stat-value']}>{item.rating}</Text>
-              <Text style={styles['search__coach-stat-label']}>({item.reviews})</Text>
-            </View>
-            <View style={styles['search__coach-stat']}>
               <Text style={styles['search__coach-stat-icon']}>👥</Text>
-              <Text style={styles['search__coach-stat-label']}>{item.students}</Text>
+              <Text style={styles['search__coach-stat-label']}>
+                {item.students}
+              </Text>
             </View>
             <View style={styles['search__coach-stat']}>
               <Text style={styles['search__coach-stat-icon']}>🏅</Text>
-              <Text style={styles['search__coach-stat-label']}>{item.experience}</Text>
+              <Text style={styles['search__coach-stat-label']}>
+                {item.experience}
+              </Text>
             </View>
           </View>
         </View>
@@ -209,9 +209,11 @@ const Search: React.FC = () => {
           data={filteredCoaches}
           renderItem={renderCoach}
           keyExtractor={(item) => item.id.toString()}
-          contentContainerStyle={{ ...styles['search__results-list'], paddingBottom: 96 }}
+          contentContainerStyle={{
+            ...styles['search__results-list'],
+            paddingBottom: 96,
+          }}
           showsVerticalScrollIndicator={false}
-          // ⚠️ IMPORTANT: We pass an ELEMENT and not a function to avoid remounts
           ListHeaderComponent={
             <SearchHeader
               searchQuery={searchQuery}
@@ -223,7 +225,6 @@ const Search: React.FC = () => {
           }
           keyboardShouldPersistTaps="handled"
         />
-        <Navigation activePage="search" />
       </View>
     </SafeAreaView>
   );

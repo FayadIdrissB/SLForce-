@@ -1,4 +1,5 @@
 // import of the different libraries
+import { Stack } from 'expo-router';
 import { useState } from 'react';
 import {
   ImageBackground,
@@ -11,8 +12,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Import CSS styles
-import Navigation from '@/components/navigation';
-import { Stack } from 'expo-router';
 import { styles } from '../../styles/chat';
 
 // Simulate icons with emojis
@@ -141,20 +140,6 @@ const Chat: React.FC = () => {
         <View style={styles.app__container}>
           {/* Header WhatsApp style */}
           <View style={styles.chatHeader}>
-            <View style={styles.chatHeader__top}>
-              <Text style={styles.chatHeader__title}>SLForce</Text>
-              <View style={styles.chatHeader__actions}>
-                <TouchableOpacity style={styles.chatHeader__actionButton}>
-                  <IconWrapper emoji="📷" size={22} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.chatHeader__actionButton}>
-                  <IconWrapper emoji="🔍" size={22} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.chatHeader__actionButton}>
-                  <IconWrapper emoji="⋮" size={22} />
-                </TouchableOpacity>
-              </View>
-            </View>
             <View style={styles.searchBar}>
               <IconWrapper emoji="🔍" size={18} />
               <TextInput
@@ -201,7 +186,6 @@ const Chat: React.FC = () => {
               </TouchableOpacity>
             ))}
           </ScrollView>
-          <Navigation activePage={activePage}/>
         </View>
       </SafeAreaView>
     );

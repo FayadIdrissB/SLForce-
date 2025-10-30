@@ -1,4 +1,3 @@
-// styles/searchHeader.ts
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -94,7 +93,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   'header__category-icon': {
-    fontSize: 18,
+    width: 22,
+    height: 22,
+    resizeMode: 'contain',
+    marginRight: 8,
   },
   'header__category-text': {
     fontSize: 14,
@@ -120,10 +122,6 @@ const styles = StyleSheet.create({
     borderColor: '#E5E7EB',
     borderWidth: 1,
   },
-  'header__stat-emoji': {
-    fontSize: 24,
-    marginBottom: 4,
-  },
   'header__stat-value': {
     fontSize: 18,
     fontWeight: '900',
@@ -134,8 +132,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#6B7280',
   },
-
-  // --- RESULTS ---
+  
   'header__results': {
     paddingTop: 16,
   },

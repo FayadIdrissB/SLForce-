@@ -1,5 +1,5 @@
 // Import of the different libraries
-import { Stack, usePathname } from "expo-router";
+import { Stack, usePathname, useRouter } from "expo-router";
 import React from "react";
 import {
   ScrollView,
@@ -8,6 +8,8 @@ import {
   View
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+// Import Navigation component
 import About from "../../components/About";
 import { SectionCardSettings } from "../../components/SectionCardSettings";
 import { SettingCard } from "../../components/SettingCard";
@@ -15,12 +17,11 @@ import { SettingCard } from "../../components/SettingCard";
 // Import CSS styles
 import { styles } from "../../styles/settings";
 
-// Import Navigation component
-import Navigation from "../../components/navigation";
 
 export default function Settings() {
   const pathname = usePathname();
   const activePage = pathname.split("/").pop();
+  const router = useRouter();
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#EFF6FF" }}>
@@ -59,18 +60,21 @@ export default function Settings() {
               title="Profil"
               description="Modifier tes infos personnelles"
               hasChevron
+              onPress={() => console.log("test ouverture")}
             />
             <SettingCard
               logo="🔒"
               title="Confidentialité"
               description="Contrôle qui peut te voir"
               hasChevron
+              onPress={() => console.log("test ouverture")}
             />
             <SettingCard
               logo="🛡️"
               title="Sécurité"
               description="Mot de passe et authentification"
               hasChevron
+              onPress={() => router.push("/privacy")}
             />
           </SectionCardSettings>
 
@@ -80,24 +84,28 @@ export default function Settings() {
               title="Notifications"
               description="Reçois les messages importants"
               hasSwitch
+              onPress={() => console.log("Toggle notifications")}
             />
             <SettingCard
               logo="🔊"
               title="Sons"
               description="Sons des messages et appels"
               hasSwitch
+              onPress={() => console.log("test ouverture")}
             />
             <SettingCard
               logo="🌙"
               title="Mode sombre"
               description="Thème actuel"
               hasSwitch
+              onPress={() => console.log("test ouverture")}
             />
             <SettingCard
               logo="🌐"
               title="Langue"
               description="Français"
               hasChevron
+              onPress={() => console.log("test ouverture")}
             />
           </SectionCardSettings>
 
@@ -107,12 +115,14 @@ export default function Settings() {
               title="Paiements"
               description="Gérer tes abonnements"
               hasChevron
+              onPress={() => console.log("test ouverture")}
             />
             <SettingCard
               logo="⭐"
               title="BearLift Premium"
               description="Passe en mode Pro 🔥"
               hasChevron
+              onPress={() => console.log("test ouverture")}
             />
           </SectionCardSettings>
 
@@ -122,12 +132,14 @@ export default function Settings() {
               title="Aide & Support"
               description="FAQ et contact"
               hasChevron
+              onPress={() => console.log("test ouverture")}
             />
             <SettingCard
               logo="👁️"
               title="Conditions d'utilisation"
               description="CGU et politique"
               hasChevron
+              onPress={() => router.push("/gpu")}
             />
           </SectionCardSettings>
 
@@ -158,8 +170,6 @@ export default function Settings() {
 
           <About />
         </ScrollView>
-
-        <Navigation activePage={activePage ?? "settings"} />
       </View>
     </SafeAreaView>
   );

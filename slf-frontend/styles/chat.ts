@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   app: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#EFF6FF',
   },
 
   app__container: {
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   },
 
   chatHeader: {
-    backgroundColor: '#00897B',
+    backgroundColor: '#3B82F6',
     paddingHorizontal: 16,
     paddingTop: 12,
     paddingBottom: 12,
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
   },
 
   searchBar: {
-    backgroundColor: '#00796B',
+    backgroundColor: '#2563EB',
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -66,6 +66,7 @@ export const styles = StyleSheet.create({
   },
 
   chatItem: {
+    backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
@@ -98,7 +99,7 @@ export const styles = StyleSheet.create({
     right: 0,
     width: 12,
     height: 12,
-    backgroundColor: '#10B981',
+    backgroundColor: '#3B82F6',
     borderRadius: 6,
     borderWidth: 2,
     borderColor: '#FFFFFF',
@@ -140,7 +141,7 @@ export const styles = StyleSheet.create({
   },
 
   chatItem__unreadBadge: {
-    backgroundColor: '#14B8A6',
+    backgroundColor: '#3B82F6',
     borderRadius: 10,
     width: 20,
     height: 20,

@@ -191,7 +191,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#F3F4F6',
     width: '90%',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: 30,
   },
 
   'search__coach-header': {
