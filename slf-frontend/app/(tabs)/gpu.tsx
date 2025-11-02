@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { Image, Linking, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { SwipeBackLayout } from "../../components/SwipeBackLayout";
 
 // import CSS styles
 import styles from "../../styles/gpu";
@@ -12,13 +13,14 @@ export default function CGU({ navigation }: any) {
   const handleEmail = () => Linking.openURL("mailto:legal@bearlift.com");
 
   return (
-    <SafeAreaView style={styles.cgu__safeArea}>
-      <Stack.Screen options={{ headerShown: false }} />
-      <ScrollView
-        style={styles.cgu__scroll}
-        contentContainerStyle={styles.cgu__scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
+    <SwipeBackLayout>
+      <SafeAreaView style={styles.cgu__safeArea}>
+        <Stack.Screen options={{ headerShown: false }} />
+        <ScrollView
+          style={styles.cgu__scroll}
+          contentContainerStyle={styles.cgu__scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
         {/* Header */}
         <View style={styles.cgu__header}>
           <Text style={styles.cgu__title}>CGU</Text>
@@ -157,5 +159,6 @@ export default function CGU({ navigation }: any) {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </SwipeBackLayout>
   );
 }

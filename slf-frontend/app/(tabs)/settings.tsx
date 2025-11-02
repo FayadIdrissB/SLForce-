@@ -60,7 +60,7 @@ export default function Settings() {
               title="Profil"
               description="Modifier tes infos personnelles"
               hasChevron
-              onPress={() => console.log("test ouverture")}
+              onPress={() => router.push("/settingProfil")}
             />
             <SettingCard
               logo="🔒"
@@ -132,7 +132,7 @@ export default function Settings() {
               title="Aide & Support"
               description="FAQ et contact"
               hasChevron
-              onPress={() => console.log("test ouverture")}
+              onPress={() => router.push("/support")}
             />
             <SettingCard
               logo="👁️"

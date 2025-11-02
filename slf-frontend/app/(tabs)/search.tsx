@@ -203,7 +203,7 @@ const Search: React.FC = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#EFF6FF' }}>
       <Stack.Screen options={{ headerShown: false }} />
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1}}>
         <FlatList
           style={styles.search}
           data={filteredCoaches}

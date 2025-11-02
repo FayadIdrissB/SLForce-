@@ -1,7 +1,8 @@
 // import of the different libraries
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, ScrollView, Linking } from "react-native"; 
+import { View, Text, ScrollView, Linking } from "react-native";
+import { SwipeBackLayout } from "../../components/SwipeBackLayout";
 
 // import CSS styles
 import styles from "../../styles/privacy";
@@ -15,13 +16,14 @@ export default function Privacy() {
   };
 
   return (
-    <SafeAreaView style={styles.privacy__safeArea}>
-      <Stack.Screen options={{ headerShown: false }} />
-      <ScrollView
-        style={styles.privacy__scroll}
-        contentContainerStyle={styles.privacy__scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
+    <SwipeBackLayout>
+      <SafeAreaView style={styles.privacy__safeArea}>
+        <Stack.Screen options={{ headerShown: false }} />
+        <ScrollView
+          style={styles.privacy__scroll}
+          contentContainerStyle={styles.privacy__scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
         {/* HEADER */}
         <View style={styles.privacy__header}>
           <Text style={styles.privacy__title}>Politique de Confidentialité</Text>
@@ -79,5 +81,6 @@ export default function Privacy() {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </SwipeBackLayout>
   );
 }

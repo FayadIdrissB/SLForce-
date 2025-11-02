@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
  
   search: {
     flex: 1,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#EFF6FF',
   },
 
   search__header: {

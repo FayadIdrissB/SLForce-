@@ -217,7 +217,7 @@ export const styles = StyleSheet.create({
   },
 
   conversationHeader: {
-    backgroundColor: '#00897B',
+    backgroundColor: '#2563EB',
     paddingHorizontal: 12,
     paddingVertical: 8,
     flexDirection: 'row',
@@ -318,7 +318,7 @@ export const styles = StyleSheet.create({
   },
 
   'messageBubble--sent': {
-    backgroundColor: '#DCF8C6',
+    backgroundColor: '#608ff6ff',
     borderTopRightRadius: 2,
   },
 
@@ -348,10 +348,12 @@ export const styles = StyleSheet.create({
   messageInput: {
     backgroundColor: '#F3F4F6',
     paddingHorizontal: 8,
-    paddingVertical: 8,
+    marginBottom: -30,
+    paddingBottom: 30,
+    paddingVertical: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
   },
 
   messageInput__wrapper: {
