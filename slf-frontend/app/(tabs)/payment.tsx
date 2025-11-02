@@ -1,10 +1,10 @@
 // import of the different libraries
-import { Stack } from "expo-router";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Stack } from 'expo-router';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import CSS styles
-import styles from "../../styles/payment";
+import styles from '../../styles/payment';
 
 
 export default function Payments() {
@@ -18,7 +18,7 @@ export default function Payments() {
           <Text style={styles.payments__subtitle}>Gérer tes abonnements 💳</Text>
         </View>
 
-        {/* MOYEN DE PAIEMENT */}
+        {/* METHOD OF PAYMENT */}
         <View style={styles.payments__section}>
           <Text style={styles.payments__sectionTitle}>Moyen de paiement</Text>
           <View style={styles.payments__card}>
@@ -37,7 +37,7 @@ export default function Payments() {
           </View>
         </View>
 
-        {/* ABONNEMENTS ACTIFS */}
+        {/* ACTIVE SUBSCRIPTIONS */}
         <View style={styles.payments__section}>
           <Text style={styles.payments__sectionTitle}>Abonnements actifs</Text>
 
@@ -86,32 +86,33 @@ export default function Payments() {
           </View>
         </View>
 
-        {/* TOTAL MENSUEL */}
+        {/* MONTHLY TOTAL */}
         <View style={styles.payments__total}>
           <Text style={styles.payments__totalLabel}>Total mensuel</Text>
           <Text style={styles.payments__totalAmount}>89.98€</Text>
           <Text style={styles.payments__totalSub}>2 abonnements actifs</Text>
         </View>
 
-        {/* HISTORIQUE DES PAIEMENTS */}
+        {/* PAYMENT HISTORY */}
         <View style={styles.payments__section}>
           <Text style={styles.payments__sectionTitle}>Historique des paiements</Text>
-          {["15 Oct 2024", "20 Sept 2024", "15 Sept 2024", "20 Août 2024", "15 Août 2024"].map(
+          {['15 Oct 2024', '20 Sept 2024', '15 Sept 2024', '20 Août 2024', '15 Août 2024'].map(
             (date, index) => (
               <View key={index} style={styles.payments__historyItem}>
                 <Text style={styles.payments__historyCoach}>
-                  {index % 2 === 0 ? "Coach Malik" : "Coach Sarah"}
+                  {index % 2 === 0 ? 'Coach Malik' : 'Coach Sarah'}
                 </Text>
                 <Text style={styles.payments__historyDate}>{date}</Text>
                 <Text style={styles.payments__historyPrice}>
-                  {index % 2 === 0 ? "49.99€" : "39.99€"} — <Text style={styles.payments__paid}>Payé</Text>
+                  {index % 2 === 0 ? '49.99€' : '39.99€'} —{' '}
+                  <Text style={styles.payments__paid}>Payé</Text>
                 </Text>
               </View>
-            )
+            ),
           )}
         </View>
 
-        {/* MESSAGE DE SÉCURITÉ */}
+        {/* SECURITY MESSAGE */}
         <View style={styles.payments__footer}>
           <Text style={styles.payments__footerTitle}>Paiements 100% sécurisés</Text>
           <Text style={styles.payments__footerText}>

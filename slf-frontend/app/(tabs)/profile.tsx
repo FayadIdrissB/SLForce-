@@ -1,28 +1,17 @@
 // import of the different libraries
-import { Stack } from 'expo-router';
 import { useState } from 'react';
-import {
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-// import of the different components 
+// import of the different components
+import Icon from '../../components/Icon';
 
 // import CSS styles
 import { styles } from '../../styles/profile';
 
 
-const IconWrapper = ({ emoji, size = 24 }: { emoji: string; size?: number }) => (
-  <Text style={{ fontSize: size }}>{emoji}</Text>
-);
-
 const Profile = () => {
-  const [activePage, setActivePage] = useState('profile');
   const [isEditingRecords, setIsEditingRecords] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
 
@@ -77,12 +66,16 @@ const Profile = () => {
           </View>
         </View>
 
-        <ScrollView style={styles.main} contentContainerStyle={styles.main__content} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.main}
+          contentContainerStyle={styles.main__content}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Profile Card */}
           <View style={styles.card}>
             <View style={styles.card__header}>
               <View style={styles.card__titleWrapper}>
-                <IconWrapper emoji="👤" size={24} />
+                <Icon emoji="👤" size={24} />
                 <Text style={styles.card__title}>Profil Athlète</Text>
               </View>
               <TouchableOpacity
@@ -93,7 +86,7 @@ const Profile = () => {
                   isEditingProfile ? styles['button--danger'] : styles['button--primary'],
                 ]}
               >
-                <IconWrapper emoji={isEditingProfile ? '✖️' : '✏️'} size={15} />
+                <Icon emoji={isEditingProfile ? '✖️' : '✏️'} size={15} />
               </TouchableOpacity>
             </View>
 
@@ -104,12 +97,12 @@ const Profile = () => {
                   <Image source={{ uri: profile.photo }} style={styles.profile__photo} />
                 ) : (
                   <View style={styles.profile__photoPlaceholder}>
-                    <Text></Text>
+                    <Text />
                   </View>
                 )}
                 {isEditingProfile && (
                   <TouchableOpacity style={styles.profile__cameraButton}>
-                    <IconWrapper emoji="📷" size={18} />
+                    <Icon emoji="📷" size={18} />
                   </TouchableOpacity>
                 )}
               </View>
@@ -190,7 +183,7 @@ const Profile = () => {
             <View style={styles.statsRow}>
               <View style={styles.statsRow__item}>
                 <View style={styles.field__labelWrapper}>
-                  <IconWrapper emoji="⚖️" size={16} />
+                  <Icon emoji="⚖️" size={16} />
                   <Text style={styles.field__label}>POIDS (kg)</Text>
                 </View>
                 <TextInput
@@ -207,7 +200,7 @@ const Profile = () => {
 
               <View style={styles.statsRow__item}>
                 <View style={styles.field__labelWrapper}>
-                  <IconWrapper emoji="📏" size={16} />
+                  <Icon emoji="📏" size={16} />
                   <Text style={styles.field__label}>TAILLE (cm)</Text>
                 </View>
                 <TextInput
@@ -228,7 +221,7 @@ const Profile = () => {
                 onPress={() => setIsEditingProfile(false)}
                 style={[styles.button, styles['button--full'], styles['button--save']]}
               >
-                <IconWrapper emoji="💾" size={20} />
+                <Icon emoji="💾" size={20} />
                 <Text style={styles.button__text}>Enregistrer le profil</Text>
               </TouchableOpacity>
             )}
@@ -238,7 +231,7 @@ const Profile = () => {
           <View style={styles.card}>
             <View style={styles.card__header}>
               <View style={styles.card__titleWrapper}>
-                <IconWrapper emoji="🥇" size={24} />
+                <Icon emoji="🥇" size={24} />
                 <Text style={styles.card__title}>Records Personnels</Text>
               </View>
               <TouchableOpacity
@@ -249,7 +242,7 @@ const Profile = () => {
                   isEditingRecords ? styles['button--danger'] : styles['button--warning'],
                 ]}
               >
-                <IconWrapper emoji={isEditingRecords ? '✖️' : '✏️'} size={15} />
+                <Icon emoji={isEditingRecords ? '✖️' : '✏️'} size={15} />
               </TouchableOpacity>
             </View>
 
@@ -258,9 +251,9 @@ const Profile = () => {
               {/* Muscle-up */}
               <View style={[styles.recordItem, styles['recordItem--red']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji={''}  />
+                  <Icon emoji="" />
                   <Text style={styles.recordItem__label}>MUSCLE-UP</Text>
-                  {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
+                  {!isEditingRecords && <Icon emoji="📈" size={16} />}
                 </View>
                 <View style={styles.recordItem__inputWrapper}>
                   <TextInput
@@ -282,9 +275,9 @@ const Profile = () => {
               {/* Traction */}
               <View style={[styles.recordItem, styles['recordItem--blue']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji=""  />
+                  <Icon emoji="" />
                   <Text style={styles.recordItem__label}>TRACTION</Text>
-                  {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
+                  {!isEditingRecords && <Icon emoji="📈" size={16} />}
                 </View>
                 <View style={styles.recordItem__inputWrapper}>
                   <TextInput
@@ -306,9 +299,9 @@ const Profile = () => {
               {/* Dips */}
               <View style={[styles.recordItem, styles['recordItem--green']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji=""/>
+                  <Icon emoji="" />
                   <Text style={styles.recordItem__label}>DIPS</Text>
-                  {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
+                  {!isEditingRecords && <Icon emoji="📈" size={16} />}
                 </View>
                 <View style={styles.recordItem__inputWrapper}>
                   <TextInput
@@ -330,9 +323,9 @@ const Profile = () => {
               {/* Squat */}
               <View style={[styles.recordItem, styles['recordItem--yellow']]}>
                 <View style={styles.recordItem__header}>
-                  <IconWrapper emoji="" />
+                  <Icon emoji="" />
                   <Text style={styles.recordItem__label}>SQUAT</Text>
-                  {!isEditingRecords && <IconWrapper emoji="📈" size={16} />}
+                  {!isEditingRecords && <Icon emoji="📈" size={16} />}
                 </View>
                 <View style={styles.recordItem__inputWrapper}>
                   <TextInput
@@ -357,7 +350,7 @@ const Profile = () => {
                 onPress={() => setIsEditingRecords(false)}
                 style={[styles.button, styles['button--full'], styles['button--saveRecords']]}
               >
-                <IconWrapper emoji="💾" size={20} />
+                <Icon emoji="💾" size={20} />
                 <Text style={styles.button__text}>Enregistrer les records</Text>
               </TouchableOpacity>
             )}
@@ -371,13 +364,13 @@ const Profile = () => {
                 <Text style={styles.totalCard__total}>{calculateTotal()}</Text>
                 <Text style={styles.totalCard__unit}>kg combinés</Text>
               </View>
-              <IconWrapper emoji="🎯" size={64} />
+              <Icon emoji="🎯" size={64} />
             </View>
           </View>
 
           {/* Info Box */}
           <View style={styles.infoBox}>
-            <IconWrapper emoji="💡" size={24} />
+            <Icon emoji="💡" size={24} />
             <View style={styles.infoBox__content}>
               <Text style={styles.infoBox__title}>Comment améliorer ton score ?</Text>
               <Text style={styles.infoBox__text}>

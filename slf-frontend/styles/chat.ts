@@ -187,11 +187,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 12,
   },
 
-  'nav__button--active': {
-  },
+  'nav__button--active': {},
 
-  'nav__button--activeMessages': {
-  },
+  'nav__button--activeMessages': {},
 
   nav__label: {
     fontSize: 10,

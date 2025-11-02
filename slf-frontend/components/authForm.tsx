@@ -1,63 +1,46 @@
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { RootStackParamList } from "../types/navigation";
-import styles from "./ui/authForm";
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+import styles from './ui/authForm';
 
 interface AuthFormProps {
-  defaultTab?: "login" | "register";
+  defaultTab?: 'login' | 'register';
 }
 
-
-export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
+export default function AuthForm({ defaultTab = 'login' }: AuthFormProps) {
   const [activeTab, setActiveTab] = useState(defaultTab);
-  const [role, setRole] = useState<"eleve" | "coach">("eleve");
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const [role, setRole] = useState<'eleve' | 'coach'>('eleve');
+  const router = useRouter();
 
   return (
     <View style={styles.auth__container}>
       {/* Tabs */}
       <View style={styles.auth__tabs}>
         <TouchableOpacity
-          style={[
-            styles.auth__tab,
-            activeTab === "login" && styles.auth__tabActive,
-          ]}
-          onPress={() => setActiveTab("login")}
+          style={[styles.auth__tab, activeTab === 'login' && styles.auth__tabActive]}
+          onPress={() => setActiveTab('login')}
         >
-          <Text
-            style={[
-              styles.auth__tabText,
-              activeTab === "login" && styles.auth__tabTextActive,
-            ]}
-          >
+          <Text style={[styles.auth__tabText, activeTab === 'login' && styles.auth__tabTextActive]}>
             Connexion
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[
-            styles.auth__tab,
-            activeTab === "register" && styles.auth__tabActive,
-          ]}
-          onPress={() => setActiveTab("register")}
+          style={[styles.auth__tab, activeTab === 'register' && styles.auth__tabActive]}
+          onPress={() => setActiveTab('register')}
         >
           <Text
-            style={[
-              styles.auth__tabText,
-              activeTab === "register" && styles.auth__tabTextActive,
-            ]}
+            style={[styles.auth__tabText, activeTab === 'register' && styles.auth__tabTextActive]}
           >
             Inscription
           </Text>
         </TouchableOpacity>
       </View>
 
-      {/* FORM CONNEXION */}
-      {activeTab === "login" ? (
+      {/* LOGIN FORM */}
+      {activeTab === 'login' ? (
         <>
           {/* Email */}
           <View style={styles.auth__inputWrapper}>
@@ -81,16 +64,13 @@ export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
             />
           </View>
 
-          <TouchableOpacity
-            style={styles.auth__button}
-            onPress={() => navigation.navigate("chat")}
-          >
+          <TouchableOpacity style={styles.auth__button} onPress={() => router.push('/(tabs)/chat')}>
             <Text style={styles.auth__buttonText}>Se connecter 🔥</Text>
           </TouchableOpacity>
         </>
       ) : (
         <>
-          {/* FORM REGISTER */}
+          {/* REGISTER FORM */}
 
           {/* First Name */}
           <View style={styles.auth__inputWrapper}>
@@ -150,16 +130,13 @@ export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
             <Text style={styles.auth__roleLabel}>Je suis un...</Text>
             <View style={styles.auth__roleContainer}>
               <TouchableOpacity
-                style={[
-                  styles.auth__roleButton,
-                  role === "eleve" && styles.auth__roleButtonActive,
-                ]}
-                onPress={() => setRole("eleve")}
+                style={[styles.auth__roleButton, role === 'eleve' && styles.auth__roleButtonActive]}
+                onPress={() => setRole('eleve')}
               >
                 <Text
                   style={[
                     styles.auth__roleButtonText,
-                    role === "eleve" && styles.auth__roleButtonTextActive,
+                    role === 'eleve' && styles.auth__roleButtonTextActive,
                   ]}
                 >
                   🙎 ÉLÈVE
@@ -167,16 +144,13 @@ export default function AuthForm({ defaultTab = "login" }: AuthFormProps) {
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[
-                  styles.auth__roleButton,
-                  role === "coach" && styles.auth__roleButtonActive,
-                ]}
-                onPress={() => setRole("coach")}
+                style={[styles.auth__roleButton, role === 'coach' && styles.auth__roleButtonActive]}
+                onPress={() => setRole('coach')}
               >
                 <Text
                   style={[
                     styles.auth__roleButtonText,
-                    role === "coach" && styles.auth__roleButtonTextActive,
+                    role === 'coach' && styles.auth__roleButtonTextActive,
                   ]}
                 >
                   🏋️‍♂️ COACH

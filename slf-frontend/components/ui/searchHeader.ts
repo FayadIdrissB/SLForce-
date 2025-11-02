@@ -15,16 +15,16 @@ const styles = StyleSheet.create({
   },
 
   // --- HEADER TEXT ---
-  'header__content': {
+  header__content: {
     marginBottom: 16,
   },
-  'header__title': {
+  header__title: {
     color: '#FFFFFF',
     fontSize: 26,
     fontWeight: '900',
     marginBottom: 4,
   },
-  'header__subtitle': {
+  header__subtitle: {
     color: '#DBEAFE',
     fontSize: 14,
     fontWeight: '600',
@@ -73,14 +73,14 @@ const styles = StyleSheet.create({
   },
 
   // --- CATEGORIES ---
-  'header__categories': {
+  header__categories: {
     marginTop: 8,
   },
   'header__categories-content': {
     paddingRight: 24,
     gap: 8,
   },
-  'header__category': {
+  header__category: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   },
 
   // --- STATS ---
-  'header__stats': {
+  header__stats: {
     flexDirection: 'row',
     paddingTop: 16,
     gap: 12,
@@ -132,8 +132,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#6B7280',
   },
-  
-  'header__results': {
+
+  header__results: {
     paddingTop: 16,
   },
   'header__results-title': {

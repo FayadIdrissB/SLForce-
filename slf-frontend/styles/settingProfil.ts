@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   profile: {
     flex: 1,
     backgroundColor: '#EFF6FF',
@@ -101,7 +100,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-
   profile__field: {
     paddingHorizontal: 16,
     paddingVertical: 16,
@@ -141,7 +139,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     paddingVertical: 4,
   },
-
 
   'profile__password-wrapper': {
     flexDirection: 'row',

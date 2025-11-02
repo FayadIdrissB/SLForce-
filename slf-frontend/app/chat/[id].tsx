@@ -1,33 +1,13 @@
 // import of the different libraries
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import {
-  ImageBackground,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ImageBackground, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import Icon from '../../components/Icon';
+import { CHATS } from '../../data/chats';
 // Import CSS styles
 import { styles } from '../../styles/chat';
-
-// Simulate icons with emojis
-const IconWrapper = ({ emoji, size = 24 }: { emoji: string; size?: number }) => (
-  <Text style={{ fontSize: size }}>{emoji}</Text>
-);
-
-interface ChatItem {
-  id: number;
-  name: string;
-  avatar: string;
-  lastMsg: string;
-  time: string;
-  unread: number;
-  status: 'online' | 'offline';
-}
 
 interface Message {
   id: number;
@@ -41,18 +21,9 @@ export default function ConversationScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [message, setMessage] = useState<string>('');
 
-  const chats: ChatItem[] = [
-    { id: 1, name: 'Coach Malik', avatar: '🦍', lastMsg: 'Prêt pour la session ? 🔥', time: '14:30', unread: 2, status: 'online' },
-    { id: 2, name: 'Coach Sarah', avatar: '🏋️', lastMsg: "Super séance aujourd'hui ! 💪", time: '12:15', unread: 0, status: 'online' },
-    { id: 3, name: 'Youssef Beast', avatar: '💯', lastMsg: 'Merci coach !', time: '15:00', unread: 0, status: 'offline' },
-    { id: 4, name: 'Amine Warrior', avatar: '🎯', lastMsg: "J'ai terminé les dips !", time: '14:50', unread: 3, status: 'online' },
-    { id: 5, name: 'Coach Karim', avatar: '🥇', lastMsg: 'Check ton programme', time: '11:45', unread: 1, status: 'offline' },
-    { id: 6, name: 'Team Street', avatar: '🔥', lastMsg: 'RDV demain 18h au park', time: '09:20', unread: 0, status: 'online' },
-  ];
-
   const selectedChat = useMemo(() => {
     const chatId = parseInt(String(id), 10);
-    return chats.find((c) => c.id === chatId) || null;
+    return CHATS.find((c) => c.id === chatId) || null;
   }, [id]);
 
   const messages: Message[] = selectedChat
@@ -93,7 +64,7 @@ export default function ConversationScreen() {
       <SafeAreaView style={styles.app}>
         <View style={{ padding: 16 }}>
           <TouchableOpacity onPress={() => router.replace('/(tabs)/chat')}>
-            <Text>{'←'} Retour aux messages</Text>
+            <Text>← Retour aux messages</Text>
           </TouchableOpacity>
           <Text style={{ marginTop: 12 }}>Conversation introuvable.</Text>
         </View>
@@ -110,7 +81,7 @@ export default function ConversationScreen() {
             onPress={() => router.back()}
             style={styles.conversationHeader__backButton}
           >
-            <IconWrapper emoji="←" size={24} />
+            <Icon emoji="←" size={24} />
           </TouchableOpacity>
           <View style={styles.conversationHeader__avatarWrapper}>
             <View style={styles.conversationHeader__avatar}>
@@ -128,13 +99,13 @@ export default function ConversationScreen() {
           </View>
           <View style={styles.conversationHeader__actions}>
             <TouchableOpacity style={styles.conversationHeader__actionButton}>
-              <IconWrapper emoji="📹" size={22} />
+              <Icon emoji="📹" size={22} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.conversationHeader__actionButton}>
-              <IconWrapper emoji="📞" size={22} />
+              <Icon emoji="📞" size={22} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.conversationHeader__actionButton}>
-              <IconWrapper emoji="⋮" size={22} />
+              <Icon emoji="⋮" size={22} />
             </TouchableOpacity>
           </View>
         </View>
@@ -181,7 +152,7 @@ export default function ConversationScreen() {
         <View style={styles.messageInput}>
           <View style={styles.messageInput__wrapper}>
             <TouchableOpacity style={styles.messageInput__emojiButton}>
-              <IconWrapper emoji="😊" size={24} />
+              <Icon emoji="😊" size={24} />
             </TouchableOpacity>
             <TextInput
               value={message}
@@ -191,7 +162,7 @@ export default function ConversationScreen() {
               style={styles.messageInput__field}
             />
             <TouchableOpacity style={styles.messageInput__cameraButton}>
-              <IconWrapper emoji="📷" size={20} />
+              <Icon emoji="📷" size={20} />
             </TouchableOpacity>
           </View>
           {message.trim() ? (
@@ -200,14 +171,11 @@ export default function ConversationScreen() {
               style={styles.messageInput__sendButton}
               activeOpacity={0.8}
             >
-              <IconWrapper emoji="➤" size={20} />
+              <Icon emoji="➤" size={20} />
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity
-              style={styles.messageInput__sendButton}
-              activeOpacity={0.8}
-            >
-              <IconWrapper emoji="🎤" size={20} />
+            <TouchableOpacity style={styles.messageInput__sendButton} activeOpacity={0.8}>
+              <Icon emoji="🎤" size={20} />
             </TouchableOpacity>
           )}
         </View>

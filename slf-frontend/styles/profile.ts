@@ -494,5 +494,4 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     lineHeight: 16,
   },
-
 });

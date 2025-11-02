@@ -1,35 +1,28 @@
 // Import of the different libraries
-import { Stack, usePathname, useRouter } from "expo-router";
-import React from "react";
-import {
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React from 'react';
+import { Stack, useRouter } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-// Import Navigation component
-import About from "../../components/About";
-import { SectionCardSettings } from "../../components/SectionCardSettings";
-import { SettingCard } from "../../components/SettingCard";
+// Import of the different components
+import About from '../../components/About';
+import { SettingCard } from '../../components/SettingCard';
+import { SectionCardSettings } from '../../components/SectionCardSettings';
 
 // Import CSS styles
-import { styles } from "../../styles/settings";
+import { styles } from '../../styles/settings';
 
 
 export default function Settings() {
-  const pathname = usePathname();
-  const activePage = pathname.split("/").pop();
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#EFF6FF" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#EFF6FF' }}>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={{ flex: 1 }}>
         <ScrollView
           style={styles.container}
-          contentContainerStyle={{ paddingBottom: 96 }} 
+          contentContainerStyle={{ paddingBottom: 96 }}
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.header}>
@@ -46,9 +39,7 @@ export default function Settings() {
                 <Text style={styles.profileName}>Youssef</Text>
                 <Text style={styles.profileUsername}>@youssef_beast</Text>
                 <View style={styles.membershipContainer}>
-                  <Text style={styles.membershipText}>
-                    🔥 Membre depuis Mars 2024
-                  </Text>
+                  <Text style={styles.membershipText}>🔥 Membre depuis Mars 2024</Text>
                 </View>
               </View>
             </View>
@@ -60,21 +51,21 @@ export default function Settings() {
               title="Profil"
               description="Modifier tes infos personnelles"
               hasChevron
-              onPress={() => router.push("/settingProfil")}
+              onPress={() => router.push('/settingProfil')}
             />
             <SettingCard
               logo="🔒"
               title="Confidentialité"
               description="Contrôle qui peut te voir"
               hasChevron
-              onPress={() => console.log("test ouverture")}
+              onPress={() => console.log('test ouverture')}
             />
             <SettingCard
               logo="🛡️"
               title="Sécurité"
               description="Mot de passe et authentification"
               hasChevron
-              onPress={() => router.push("/privacy")}
+              onPress={() => router.push('/privacy')}
             />
           </SectionCardSettings>
 
@@ -84,28 +75,28 @@ export default function Settings() {
               title="Notifications"
               description="Reçois les messages importants"
               hasSwitch
-              onPress={() => console.log("Toggle notifications")}
+              onPress={() => console.log('Toggle notifications')}
             />
             <SettingCard
               logo="🔊"
               title="Sons"
               description="Sons des messages et appels"
               hasSwitch
-              onPress={() => console.log("test ouverture")}
+              onPress={() => console.log('test ouverture')}
             />
             <SettingCard
               logo="🌙"
               title="Mode sombre"
               description="Thème actuel"
               hasSwitch
-              onPress={() => console.log("test ouverture")}
+              onPress={() => console.log('test ouverture')}
             />
             <SettingCard
               logo="🌐"
               title="Langue"
               description="Français"
               hasChevron
-              onPress={() => console.log("test ouverture")}
+              onPress={() => console.log('test ouverture')}
             />
           </SectionCardSettings>
 
@@ -115,14 +106,14 @@ export default function Settings() {
               title="Paiements"
               description="Gérer tes abonnements"
               hasChevron
-              onPress={() => console.log("test ouverture")}
+              onPress={() => console.log('test ouverture')}
             />
             <SettingCard
               logo="⭐"
               title="BearLift Premium"
               description="Passe en mode Pro 🔥"
               hasChevron
-              onPress={() => console.log("test ouverture")}
+              onPress={() => console.log('test ouverture')}
             />
           </SectionCardSettings>
 
@@ -132,14 +123,14 @@ export default function Settings() {
               title="Aide & Support"
               description="FAQ et contact"
               hasChevron
-              onPress={() => router.push("/support")}
+              onPress={() => router.push('/support')}
             />
             <SettingCard
               logo="👁️"
               title="Conditions d'utilisation"
               description="CGU et politique"
               hasChevron
-              onPress={() => router.push("/gpu")}
+              onPress={() => router.push('/gpu')}
             />
           </SectionCardSettings>
 
@@ -153,9 +144,7 @@ export default function Settings() {
 
               <View style={styles.deleteAccountTextContainer}>
                 <Text style={styles.deleteAccountTitle}>Supprimer mon compte</Text>
-                <Text style={styles.deleteAccountSubtitle}>
-                  Cette action est irréversible
-                </Text>
+                <Text style={styles.deleteAccountSubtitle}>Cette action est irréversible</Text>
               </View>
 
               <View style={styles.arrowContainer}>

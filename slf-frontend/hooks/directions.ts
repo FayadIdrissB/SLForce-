@@ -1,7 +1,8 @@
+import { useRef } from 'react';
 import { Animated, Easing } from 'react-native';
 
 export const useDirectionalTransition = () => {
-  const translateX = new Animated.Value(0);
+  const translateX = useRef(new Animated.Value(0)).current;
 
   const slide = (direction: 'left' | 'right') => {
     Animated.sequence([

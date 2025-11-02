@@ -1,12 +1,14 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
-import { useColorScheme } from "react-native";
+// Import of the different libraries
+import { useEffect } from 'react';
+import { Stack } from 'expo-router';
+import { useColorScheme } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme(); 
+  const colorScheme = useColorScheme();
 
   useEffect(() => {
     SplashScreen.preventAutoHideAsync();
@@ -18,7 +20,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }} />
       </ThemeProvider>
     </GestureHandlerRootView>

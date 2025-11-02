@@ -1,15 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
-    payments__chibrax: {
+  payments__chibrax: {
     flex: 1,
     backgroundColor: '#EFF6FF',
   },
 
   'help__scroll-content': {
     paddingBottom: 100,
-    backgroundColor: '#EFF6FF'
+    backgroundColor: '#EFF6FF',
   },
 
   'help__search-section': {

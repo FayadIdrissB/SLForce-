@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   section: {
@@ -8,10 +8,10 @@ export const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 13,
-    fontWeight: "600",
-    color: "#666",
+    fontWeight: '600',
+    color: '#666',
     marginLeft: 20,
     marginBottom: 10,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
 });

@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   },
 
   nav__buttonActive: {
-    // style optionnel 
+    // optional style
   },
 
   nav__iconWrapper: {

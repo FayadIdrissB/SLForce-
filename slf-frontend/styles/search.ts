@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
- 
   search: {
     flex: 1,
     backgroundColor: '#EFF6FF',
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '900',
     color: '#1F2937',
-    marginLeft: 20
+    marginLeft: 20,
   },
 
   'search__results-list': {
@@ -198,7 +197,7 @@ const styles = StyleSheet.create({
   'search__coach-header': {
     flexDirection: 'row',
     gap: 16,
-    marginBottom: 12
+    marginBottom: 12,
   },
 
   'search__coach-avatar': {

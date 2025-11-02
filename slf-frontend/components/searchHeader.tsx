@@ -1,12 +1,6 @@
 // import of the different libraries
 import React from 'react';
-import {
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 // Import CSS styles
 import styles from './ui/searchHeader';
@@ -30,9 +24,7 @@ const SearchHeader: React.FC<SearchHeaderProps> = React.memo(
       <View style={styles['header']}>
         <View style={styles['header__content']}>
           <Text style={styles['header__title']}>Trouve ton Coach</Text>
-          <Text style={styles['header__subtitle']}>
-            Les meilleurs coachs de France 🇫🇷
-          </Text>
+          <Text style={styles['header__subtitle']}>Les meilleurs coachs de France 🇫🇷</Text>
         </View>
 
         {/* --- SEARCH BAR --- */}
@@ -103,7 +95,7 @@ const SearchHeader: React.FC<SearchHeaderProps> = React.memo(
         </View>
       </View>
     );
-  }
+  },
 );
 
 export default SearchHeader;

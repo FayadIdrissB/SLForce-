@@ -1,6 +1,7 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { styles } from "./ui/settingCard.styles";
+import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+
+import { styles } from './ui/settingCard.styles';
 
 interface SettingCardProps {
   logo: string;
@@ -32,7 +33,34 @@ export const SettingCard: React.FC<SettingCardProps> = ({
           <Text style={styles.menuItemSubtitle}>{description}</Text>
         </View>
       </View>
-      {hasChevron && <Text style={styles.chevron}>›</Text>}
+      {hasSwitch ? (
+        <View
+          style={{
+            width: 44,
+            height: 26,
+            borderRadius: 13,
+            backgroundColor: '#E5E7EB',
+            justifyContent: 'center',
+            paddingHorizontal: 3,
+          }}
+        >
+          <View
+            style={{
+              width: 20,
+              height: 20,
+              borderRadius: 10,
+              backgroundColor: '#FFFFFF',
+              alignSelf: 'flex-start',
+              shadowColor: '#000',
+              shadowOpacity: 0.1,
+              shadowRadius: 2,
+              shadowOffset: { width: 0, height: 1 },
+            }}
+          />
+        </View>
+      ) : (
+        hasChevron && <Text style={styles.chevron}>›</Text>
+      )}
     </Wrapper>
   );
 };

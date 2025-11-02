@@ -1,19 +1,18 @@
 // import of the different libraries
-import { SafeAreaView } from "react-native-safe-area-context";
-import { View, ScrollView, Image, Text } from "react-native";
-
-// import of the different assets
-const logo = require("../../assets/images/logo.png");
+import { View, ScrollView, Image, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import of the different components
-import AuthForm from "../../components/authForm";
+import AuthForm from '../../components/authForm';
+
+// import of the different assets
+const logo = require('../../assets/images/logo.png');
 
 // import CSS styles
-import styles from "../../styles/home";
+import styles from '../../styles/home';
 
 
 export default function Home() {
-
   return (
     <SafeAreaView style={styles.home__safeArea}>
       <ScrollView
@@ -29,7 +28,7 @@ export default function Home() {
           <Text style={styles.home__title}>SLForce</Text>
           <Text style={styles.home__subtitle}>Street Workout Community</Text>
         </View>
-        
+
         {/* FORM */}
         <AuthForm />
       </ScrollView>
