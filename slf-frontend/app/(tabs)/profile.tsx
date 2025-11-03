@@ -1,8 +1,8 @@
 // import of the different libraries
-import { useState } from 'react';
 import { Stack } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useState } from 'react';
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import of the different components
 import Icon from '../../components/Icon';
@@ -90,7 +90,6 @@ const Profile = () => {
               </TouchableOpacity>
             </View>
 
-            {/* Photo */}
             <View style={styles.profile}>
               <View style={styles.profile__photoWrapper}>
                 {profile.photo ? (
@@ -107,7 +106,6 @@ const Profile = () => {
                 )}
               </View>
 
-              {/* Name */}
               {isEditingProfile ? (
                 <TextInput
                   value={profile.name}
@@ -120,7 +118,6 @@ const Profile = () => {
               <Text style={styles.profile__username}>@{profile.name.toLowerCase()}_beast</Text>
             </View>
 
-            {/* Gender Selection */}
             <View style={styles.field}>
               <Text style={styles.field__label}>GENRE</Text>
               <View style={styles.genderSelector}>
@@ -246,9 +243,7 @@ const Profile = () => {
               </TouchableOpacity>
             </View>
 
-            {/* Records */}
             <View style={styles.recordsList}>
-              {/* Muscle-up */}
               <View style={[styles.recordItem, styles['recordItem--red']]}>
                 <View style={styles.recordItem__header}>
                   <Icon emoji="" />
@@ -272,7 +267,6 @@ const Profile = () => {
                 </View>
               </View>
 
-              {/* Traction */}
               <View style={[styles.recordItem, styles['recordItem--blue']]}>
                 <View style={styles.recordItem__header}>
                   <Icon emoji="" />
@@ -296,7 +290,6 @@ const Profile = () => {
                 </View>
               </View>
 
-              {/* Dips */}
               <View style={[styles.recordItem, styles['recordItem--green']]}>
                 <View style={styles.recordItem__header}>
                   <Icon emoji="" />
@@ -320,7 +313,6 @@ const Profile = () => {
                 </View>
               </View>
 
-              {/* Squat */}
               <View style={[styles.recordItem, styles['recordItem--yellow']]}>
                 <View style={styles.recordItem__header}>
                   <Icon emoji="" />
@@ -368,7 +360,6 @@ const Profile = () => {
             </View>
           </View>
 
-          {/* Info Box */}
           <View style={styles.infoBox}>
             <Icon emoji="💡" size={24} />
             <View style={styles.infoBox__content}>

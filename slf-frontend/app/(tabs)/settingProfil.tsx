@@ -1,7 +1,7 @@
 // import of the different libraries
 import { useState } from 'react';
+import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
-import { View, Text, TouchableOpacity, ScrollView, TextInput, Image } from 'react-native';
 
 // import of the different components
 import { SwipeBackLayout } from '../../components/SwipeBackLayout';
@@ -53,12 +53,10 @@ const ProfileSettings: React.FC = () => {
 
   const handleSaveProfile = () => {
     console.log('Profile saved:', profile);
-    // API call here
   };
 
   const handleChangePassword = () => {
     console.log('Password change:', passwords);
-    // API call here
   };
 
   return (
@@ -71,7 +69,6 @@ const ProfileSettings: React.FC = () => {
           contentContainerStyle={styles['profile__scroll-content']}
           showsVerticalScrollIndicator={false}
         >
-          {/* Photo Section */}
           <View style={styles['profile__photo-section']}>
             <View style={styles['profile__photo-wrapper']}>
               {profile.photo ? (
@@ -149,7 +146,6 @@ const ProfileSettings: React.FC = () => {
             <Text style={styles['profile__save-btn-text']}>Enregistrer les modifications</Text>
           </TouchableOpacity>
 
-          {/* Password Section */}
           <View style={styles['profile__section-header']}>
             <Text style={styles['profile__section-title']}>CHANGER LE MOT DE PASSE</Text>
           </View>
@@ -241,7 +237,6 @@ const ProfileSettings: React.FC = () => {
             <Text style={styles['profile__password-btn-text']}>Changer le mot de passe</Text>
           </TouchableOpacity>
 
-          {/* Info Box */}
           <View style={styles['profile__info-box']}>
             <Text style={styles['profile__info-icon']}>💡</Text>
             <View style={styles['profile__info-content']}>

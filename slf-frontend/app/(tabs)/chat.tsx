@@ -41,7 +41,7 @@ const Chat: React.FC = () => {
           {chats.map((chat) => (
             <TouchableOpacity
               key={chat.id}
-              onPress={() => router.push(`/chat/${chat.id}`)}
+              onPress={() => router.push({ pathname: "/chat/[id]", params: { id: String(chat.id) } })}
               style={styles.chatItem}
               activeOpacity={0.7}
             >

@@ -1,6 +1,6 @@
 // Import of the different libraries
-import { useEffect, useRef } from 'react';
 import { Slot, usePathname } from 'expo-router';
+import { useEffect, useRef } from 'react';
 import { Animated, Easing, View } from 'react-native';
 
 // Import of the different components
@@ -35,11 +35,9 @@ export default function TabLayout() {
     // If returning from a subpage to a main page
     if (wasOnSubPage && !isSubPage) {
       if (navState.gestureBack) {
-        // Back via gesture: skip entry animation to avoid the intermediate frame
         translateX.setValue(0);
         navState.gestureBack = false;
       } else {
-        // Left-to-right animation (back)
         translateX.setValue(-OFFSET);
         Animated.timing(translateX, {
           toValue: 0,
@@ -79,7 +77,6 @@ export default function TabLayout() {
       }).start();
     }
 
-    // Update previous page
     previousPage.current = isSubPage ? 'subpage' : currentPage || null;
   }, [pathname, isSubPage, currentPage, translateX]);
 
