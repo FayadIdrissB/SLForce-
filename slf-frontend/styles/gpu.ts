@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   cgu__logoWrapper: {
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#3B82F6',
     borderRadius: 12,
     width: 60,
     height: 60,

@@ -1,8 +1,8 @@
 // import of the different libraries
-import { Stack } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Stack } from 'expo-router';
 import { Image, Linking, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import of the different components
 import { SwipeBackLayout } from '../../components/SwipeBackLayout';
@@ -12,6 +12,8 @@ import styles from '../../styles/gpu';
 
 
 export default function CGU() {
+
+  // the mail adress for request
   const handleEmail = () => Linking.openURL('mailto:legal@bearlift.com');
 
   return (
@@ -29,7 +31,6 @@ export default function CGU() {
             <Text style={styles.cgu__subtitle}>Conditions d'utilisation 📜</Text>
           </View>
 
-          {/* Section principale */}
           <View style={styles.cgu__card}>
             <View style={styles.cgu__introHeader}>
               <View style={styles.cgu__logoWrapper}>
@@ -50,7 +51,7 @@ export default function CGU() {
             </View>
           </View>
 
-          {/* Avertissement */}
+          {/* Warning */}
           <View style={styles.cgu__alertBox}>
             <Ionicons name="alert-circle-outline" size={20} color="#DC2626" />
             <Text style={styles.cgu__alertText}>
@@ -59,7 +60,6 @@ export default function CGU() {
             </Text>
           </View>
 
-          {/* Contenu */}
           <View style={styles.cgu__section}>
             <Text style={styles.cgu__sectionTitle}>1. Acceptation des Conditions</Text>
             <Text style={styles.cgu__text}>
